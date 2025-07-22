@@ -1,0 +1,16 @@
+Warning: File is not in a workspace
+Path: c:\Users\kevin\Documents\openclassrooms\projet4\sass\style.scss
+--------------------
+Warning:
+The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+null
+THIS IS DEPRECATED AND WILL BE REMOVED IN SASS 2.0
+--------------------
+Generated:
+c:\Users\kevin\Documents\openclassrooms\projet4\sass\style.css.map
+c:\Users\kevin\Documents\openclassrooms\projet4\sass\style.css
+--------------------
+Watching...
+--------------------
