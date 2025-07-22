@@ -9,7 +9,29 @@ $white-color: #FFFFFF;
 $location-color: #EAEAEA;
 $footer-color : #353535;
 
+@mixin text-logo {
+    font-family: 'Shrikhand', 'sans-serif';
+    font-weight: 400;
+}
+
+
 body {
     background-color: $main-color;
     margin: 0px;
+    font-family: 'Roboto', 'sans-serif';
 }
+
+header {
+    text-align: center;
+    background-color: $white-color;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+    & img {
+        width: 197px;
+        height: 36px;
+        @include text-logo;
+        font-size: 30px;
+    }
+}
+
+
