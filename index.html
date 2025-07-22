@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="sass/style.css">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         <img src="./assets/images_et_textes_Ohmyfood/images/logo/ohmyfood.png" alt="logo Ohmyfood">
         <div class="location">
             <i class="fa-solid fa-location-dot"></i>
-            <h1>Paris, Belleville</h1>
+            <p>Paris, Belleville</p>
         </div>
     </header>
 
@@ -27,28 +28,28 @@
         </section>
 
         <section class="presentation">
-            <h1>Fonctionnement</h1>
+            <h2>Fonctionnement</h2>
             <div class="presentation__articles">
                 <article>
-                    <h2 class="articles__number">1</h2>
+                    <h3 class="articles__number">1</h3>
                     <i class="fa-solid fa-mobile-screen-button"></i>
-                    <h2>Choisissez votre restaurant</h2>
+                    <h3>Choisissez votre restaurant</h3>
                 </article>
                 <article>
-                    <h2 class="articles__number">2</h2>
+                    <h3 class="articles__number">2</h3>
                     <i class="fa-solid fa-list-ul"></i>
-                    <h2>Composez votre menu</h2>
+                    <h3>Composez votre menu</h3>
                 </article>
                 <article>
-                    <h2 class="articles__number">3</h2>
+                    <h3 class="articles__number">3</h3>
                     <i class="fa-solid fa-store"></i>
-                    <h2>Dégustez au restaurant</h2>
+                    <h3>Dégustez au restaurant</h3>
                 </article>
             </div>
         </section>
 
         <section class="restaurants">
-            <h1>Restaurants</h1>
+            <h2>Restaurants</h2>
             <a href="#">
                 <article class="card">
                     <div class="card__image">
@@ -57,7 +58,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">La palette du goût</h2>
+                            <h3 class="card-title">La palette du goût</h3>
                             <p class="card-subtitle">Ménilmontant</p>
                         </div>
                         <i class="fa-regular fa-heart"></i>
@@ -72,7 +73,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">La note enchantée</h2>
+                            <h3 class="card-title">La note enchantée</h3>
                             <p class="card-subtitle">Charonne</p>
                         </div>
                         <i class="fa-regular fa-heart"></i>
@@ -86,7 +87,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">A la française</h2>
+                            <h3 class="card-title">A la française</h3>
                             <p class="card-subtitle">Cité Rouge</p>
                         </div>
                         <i class="fa-regular fa-heart"></i>
@@ -100,7 +101,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-txt">
-                            <h2 class="card-title">Le délice des sens</h2>
+                            <h3 class="card-title">Le délice des sens</h3>
                             <p class="card-subtitle">Folie-Méricourt</p>
                         </div>
                         <i class="fa-regular fa-heart"></i>
@@ -112,7 +113,7 @@
 
     <footer>
         <img class="footer__logo" src="./assets/images_et_textes_Ohmyfood/images/logo/ohmyfood.png" alt="logo Ohmyfood">
-        <article class="footer__article">
+        <div class="footer__content">
             <div>
                 <i class="fa-solid fa-utensils"></i>
                 <a href="#"> Proposer un restaurant </a>
@@ -121,12 +122,10 @@
                 <i class="fa-solid fa-handshake-angle"></i> 
                 <a href="#"> Devenir partenaire </a>
             </div>
-        </article>
-        <article class="footer__article">
-            <ul>
-                <li> <a href="#"> Mentions légales </a> </li>
-                <li> <a href="#"> Contact </a> </li>
-            </ul>
-        </article>
+        </div>
+        <ul class="footer__list">
+            <li> <a href="#"> Mentions légales </a> </li>
+            <li> <a href="#"> Contact </a> </li>
+        </ul>
     </footer>
 </body>
