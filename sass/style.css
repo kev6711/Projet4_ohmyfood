@@ -1,1 +1,6 @@
-/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  background-color: #F6F6F6;
+  margin: 0px;
+}/*# sourceMappingURL=style.css.map */
