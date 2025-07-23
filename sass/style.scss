@@ -7,7 +7,8 @@ $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
 $white-color: #FFFFFF;
 $location-color: #EAEAEA;
-$footer-color : #353535;
+$footer-color: #353535;
+$icon-color: #7E7E7E;
 
 @mixin text-logo {
     font-family: 'Shrikhand', 'sans-serif';
@@ -17,6 +18,10 @@ $footer-color : #353535;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
 }
 @mixin button {
     width: 218px;
@@ -81,10 +86,75 @@ h1 {
     margin: 27px auto 57px auto;
     font-weight: 500;
     font-size: 16px;
-    color: white;
+    color: $white-color;
     @include flex-center;
     @include button;
 }
 
+.presentation {
+    background-color: $white-color;
+    padding: 48px 20px 68px 20px;
+
+    h2 {
+        margin-bottom: 26px
+    }
+
+    .presentation__article {
+        @include flex-column;
+        gap: 25px;
+    }
+}
+
+.article__number {
+    width: 24px;
+    height: 24px;
+    font-size: 14.18px;
+    font-weight: 500;
+    color: $white-color;
+    border-radius: 50%;
+    background-color: $primary-color;
+    @include flex-center;
+    position: relative;
+    right: 12px;
+}
+
+.article__button {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    background-color: $main-color;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    left: 12px;
+    margin-right: 12px;
+    height: 72.38px;
+}
+
+.fa-solid.fa-mobile-screen-button {
+    width: 13px;
+    height: 20px;
+    @include flex-center;
+}
+
+.fa-solid.fa-store {
+    width: 18px;
+    height: 18px;
+    color: $primary-color;
+}
+
+.fa-solid {
+    color: $icon-color;
+}
 
 
+h2 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 0px;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 16px;
+}

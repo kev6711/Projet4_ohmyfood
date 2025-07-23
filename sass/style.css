@@ -53,7 +53,7 @@ h1 {
   margin: 27px auto 57px auto;
   font-weight: 500;
   font-size: 16px;
-  color: white;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,4 +62,74 @@ h1 {
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
+}
+
+.presentation {
+  background-color: #FFFFFF;
+  padding: 48px 20px 68px 20px;
+}
+.presentation h2 {
+  margin-bottom: 26px;
+}
+.presentation .presentation__article {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.article__number {
+  width: 24px;
+  height: 24px;
+  font-size: 14.18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  border-radius: 50%;
+  background-color: #9356DC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 12px;
+}
+
+.article__button {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  background-color: #F6F6F6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  left: 12px;
+  margin-right: 12px;
+  height: 72.38px;
+}
+
+.fa-solid.fa-mobile-screen-button {
+  width: 13px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-solid.fa-store {
+  width: 18px;
+  height: 18px;
+  color: #9356DC;
+}
+
+.fa-solid {
+  color: #7E7E7E;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 0px;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 16px;
 }/*# sourceMappingURL=style.css.map */
