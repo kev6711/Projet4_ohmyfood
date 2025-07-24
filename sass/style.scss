@@ -1,38 +1,72 @@
+/*Importations Polices Shrikhand & Roboto*/
+
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Variables*/
 
 $main-color: #F6F6F6;
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
-$white-color: #FFFFFF;
+$dark-grey-color: #353535;
 $location-color: #EAEAEA;
-$footer-color: #353535;
-$icon-color: #7E7E7E;
-$black-color: #000000;
+$presentation-icon-color: #7E7E7E;
 $card__text--button-color : #008766;
+$white-color: #FFFFFF;
+$black-color: #000000;
+
+/*Mixins*/
 
 @mixin text-logo {
     font-family: 'Shrikhand', 'sans-serif';
     font-weight: 400;
 }
+
+/*var- display: flex*/
 @mixin flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+@mixin flex-items-center {
+    display: flex;
+    align-items: center;
+}
 @mixin flex-column {
     display: flex;
     flex-direction: column;
 }
-@mixin button {
+
+/*var- button*/
+@mixin button-reservation {
     width: 218px;
     height: 50px;
     background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
+    cursor: pointer;
+}
+@mixin button-presentation {
+    height: 72.38px;
+    background-color: $main-color;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+@mixin button-image {
+    width: 80px;
+    height: 29px;
+    background-color: $tertiary-color;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
 }
 
+@mixin icon-size ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+/*Début du code sass*/
 
 body {
     background-color: $main-color;
@@ -47,8 +81,7 @@ header {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
     & img {
-        width: 197px;
-        height: 36px;
+        @include icon-size(197px, 36px);
         @include text-logo;
         font-size: 30px;
     }
@@ -56,11 +89,8 @@ header {
 
 .location {
     background-color: $location-color;
-    color: $footer-color;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    color: $dark-grey-color;
+    @include flex-center;
     gap: 17px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     
@@ -77,79 +107,6 @@ h1 {
     text-align: center;
 }
 
-.reservation h2 {
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    color: $footer-color;
-}
-
-.reservation__button {
-    margin: 27px auto 57px auto;
-    font-weight: 500;
-    font-size: 16px;
-    color: $white-color;
-    @include flex-center;
-    @include button;
-}
-
-.presentation {
-    background-color: $white-color;
-    padding: 48px 20px 68px 20px;
-
-    h2 {
-        margin-bottom: 26px
-    }
-
-    .presentation__article {
-        @include flex-column;
-        gap: 25px;
-    }
-}
-
-.article__number {
-    width: 24px;
-    height: 24px;
-    font-size: 14.18px;
-    font-weight: 500;
-    color: $white-color;
-    border-radius: 50%;
-    background-color: $primary-color;
-    @include flex-center;
-    position: relative;
-    right: 12px;
-}
-
-.article__button {
-    display: flex;
-    align-items: center;
-    gap: 27px;
-    background-color: $main-color;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    position: relative;
-    left: 12px;
-    margin-right: 12px;
-    height: 72.38px;
-}
-
-.fa-solid.fa-mobile-screen-button {
-    width: 13px;
-    height: 20px;
-    @include flex-center;
-}
-
-.fa-solid.fa-store {
-    width: 18px;
-    height: 18px;
-    color: $primary-color;
-}
-
-.fa-solid {
-    color: $icon-color;
-}
-
-
 h2 {
     font-weight: 700;
     font-size: 24px;
@@ -161,6 +118,67 @@ h3 {
     font-size: 16px;
 }
 
+.reservation h2 {
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    color: $dark-grey-color;
+}
+
+.reservation__button {
+    margin: 27px auto 57px auto;
+    color: $white-color;
+    @include flex-center;
+    @include button-reservation;
+}
+
+.presentation {
+    background-color: $white-color;
+    padding: 48px 20px 68px 20px;
+
+    h2 {
+        margin-bottom: 26px;
+    }
+
+    .presentation__article {
+        @include flex-column;
+        gap: 25px;
+
+        .article__button {
+            @include button-presentation;
+            @include flex-items-center;
+            position: relative;
+            left: 12px;
+            margin-right: 12px;
+
+            .article__number {
+                @include icon-size(24px, 24px);
+                font-size: 14.18px;
+                font-weight: 500;
+                color: $white-color;
+                border-radius: 50%;
+                background-color: $primary-color;
+                @include flex-center;
+                position: relative;
+                right: 12px;
+            }
+            .fa-solid.fa-mobile-screen-button {
+                @include icon-size(13px, 20px);
+                @include flex-center;
+            }
+            .fa-solid.fa-store {
+                @include icon-size(18px, 18px);
+                color: $primary-color;
+            }
+            .fa-solid {
+                color: $presentation-icon-color;
+                margin-left: 10px;
+                margin-right: 27px;
+            }
+        }
+    }
+}
+
 .restaurants {
     padding: 54px 18px 66px 17px;
 
@@ -168,10 +186,10 @@ h3 {
         @include flex-column;
         gap: 18px;
 
-    a {
-        text-decoration: unset;
-        color: $black-color;
-    }
+        a {
+            text-decoration: unset;
+            color: $black-color;
+        }
 
         .card {
             @include flex-column;
@@ -179,81 +197,71 @@ h3 {
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             background-color: $white-color;
-        }
 
-        .card .card__image {
-            position: relative;
-        }
+            .card__image {
+                position: relative;
 
-        .card .card-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-left: 13px;
-            padding-right: 25px;
-        }
+                img {
+                    @include icon-size(100%, 174px);
+                    object-fit: cover;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                }
 
-        .card-title {
-            margin-top: 0px;
-            margin-bottom: 5px;
-            font-weight: 700;
-            font-size: 18px;
-        }
+                .card__image--button {
+                    color: $card__text--button-color;
+                    font-weight: 500;
+                    font-size: 14px;
+                    @include button-image;
+                    @include flex-center;
+                    margin: 0px;
+                    position: absolute;
+                    top: 13px;
+                    right: 12px;
+                }
+            }
 
-        .heart-gradient {
-            background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+            .card-content {
+                @include flex-items-center;
+                justify-content: space-between;
+                padding-left: 13px;
+                padding-right: 25px;
 
-        .card-subtitle {
-        margin-top: 0px;
-        margin-bottom: 12px;
-        }
+                .card-title {
+                margin-top: 0px;
+                margin-bottom: 5px;
+                font-weight: 700;
+                font-size: 18px;
+                }
 
-        .card img {
-            height: 174px;
-            width: 100%;
-            object-fit: cover;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
+                .card-subtitle {
+                margin-top: 0px;
+                margin-bottom: 12px;
+                }
 
-        .card .card__image--button {
-            color: $card__text--button-color;
-            font-weight: 500;
-            font-size: 14px;
-            background-color: $tertiary-color;
-            width: 80px;
-            height: 29px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-            border-radius: 2px;
-            margin: 0px;
-            position: absolute;
-            top: 13px;
-            right: 12px;
-        }
+                .fa-solid,
+                .fa-regular {
+                    width: 22px;
+                    font-size: 21px;
+                    @include flex-center;
+                }
 
-        .fa-solid,
-        .fa-regular {
-            width: 22px;
-            font-size: 21px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+                .heart-gradient {
+                background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                }
+            }
         }
-    
     }
 }
 
 footer {
-    background-color: #353535;
+    background-color: $dark-grey-color;
     padding: 22px 25px;
     
     .footer__logo {
+        @include icon-size(139px, 27px);
         margin-bottom: 16px;
     }
 
@@ -266,16 +274,15 @@ footer {
             gap: 11px;
 
             .fa-solid {
-                color: #FFFFFF;
+                color: $white-color;
                 width: 11px;
                 font-size: 13px;
-                display: flex;
-                align-items: center;
+                @include flex-items-center;
             }
 
             a {
                 text-decoration: unset;
-                color: white;
+                color: $white-color;
                 font-weight: 500;
                 font-size: 16px;
             }
@@ -288,8 +295,7 @@ footer {
         padding: 0px;
         list-style: none;
         color: $white-color;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         gap: 7px;
 
         a {
