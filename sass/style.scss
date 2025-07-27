@@ -75,6 +75,54 @@ body {
     color: $black-color;
 }
 
+.loader {
+    width: 100vw;       
+    height: 100vh;
+    @include flex-center;
+    animation: loader 0s 1.15s forwards;
+
+    &__bar {
+        width: 50vw;
+        height: 10vh;
+        border: 1px solid $black-color;
+        transform: scaleX(0);
+        transform-origin: left;
+        background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        animation: loader__bar 1s 150ms forwards;
+    }
+}
+
+@keyframes loader {
+  to {
+    height: 0;
+    width: 0;
+    border: none;
+  }
+}
+
+@keyframes loader__bar {
+    from {
+        transform: scaleX(0);  
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.main__content {
+    animation: main-content 0ms 1150ms both;
+}
+
+@keyframes main-content {
+    0% {
+        transform: translateX(-9999px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 header {
     text-align: center;
     background-color: $white-color;
