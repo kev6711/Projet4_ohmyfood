@@ -12,6 +12,8 @@ body {
   margin: 0px;
   font-family: "Roboto", "sans-serif";
   color: #000000;
+  min-width: 325px;
+  max-width: 1440px;
 }
 
 .loader {
@@ -215,7 +217,7 @@ h3 {
 .restaurants .restaurants__cards .card {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   background-color: #FFFFFF;
@@ -264,6 +266,8 @@ h3 {
 .restaurants .restaurants__cards .card .card-content .card-subtitle {
   margin-top: 0px;
   margin-bottom: 12px;
+  font-weight: 300;
+  font-size: 17px;
 }
 .restaurants .restaurants__cards .card .card-content .fa-solid,
 .restaurants .restaurants__cards .card .card-content .fa-regular {
@@ -289,23 +293,23 @@ footer .footer__logo {
   height: 27px;
   margin-bottom: 16px;
 }
-footer .footer__content {
+footer .footer__text-icon {
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
-footer .footer__content div {
+footer .footer__text-icon div {
   display: flex;
   gap: 11px;
 }
-footer .footer__content div .fa-solid {
+footer .footer__text-icon div .fa-solid {
   color: #FFFFFF;
   width: 11px;
   font-size: 13px;
   display: flex;
   align-items: center;
 }
-footer .footer__content div a {
+footer .footer__text-icon div a {
   text-decoration: unset;
   color: #FFFFFF;
   font-weight: 500;
@@ -326,4 +330,92 @@ footer .footer__list a {
   color: #FFFFFF;
   font-weight: 400;
   font-size: 16px;
+}
+
+/* Media Queries Desktop (more than 1024px) */
+@media (min-width: 1024px) {
+  body {
+    margin: auto;
+  }
+  .location {
+    box-shadow: none;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  .reservation {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .reservation h1, .reservation h2, .reservation h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .presentation {
+    margin: 0;
+    padding: 50px 180px;
+  }
+  .presentation h2 {
+    margin-bottom: 25px;
+  }
+  .presentation .presentation__article {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+  .presentation .article__button {
+    width: 100%;
+  }
+  .restaurants {
+    padding: 0 180px;
+  }
+  .restaurants h2 {
+    margin-bottom: 28px;
+  }
+  .restaurants .restaurants__cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 50px;
+    -moz-column-gap: 100px;
+         column-gap: 100px;
+  }
+  .restaurants .restaurants__cards a {
+    width: calc((100% - 100px) / 2);
+  }
+  .restaurants .restaurants__cards .card .card-content {
+    padding-left: 18.5px;
+  }
+  footer {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: end;
+  }
+  footer .footer__logo {
+    margin: 0;
+  }
+  footer .footer__content {
+    display: flex;
+    flex-direction: row;
+  }
+  footer .footer__content .footer__text-icon {
+    display: flex;
+    flex-direction: row;
+    margin-right: 44px;
+  }
+  footer .footer__content .footer__list {
+    margin-top: 0;
+    margin-right: 90px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
 }/*# sourceMappingURL=style.css.map */
