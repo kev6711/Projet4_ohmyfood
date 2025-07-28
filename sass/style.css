@@ -22,6 +22,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
   animation: loader 0s 1.15s forwards;
 }
 .loader__bar {
@@ -120,6 +121,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
   width: 218px;
   height: 50px;
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
@@ -181,6 +183,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
   position: relative;
   right: 12px;
 }
@@ -190,6 +193,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
 }
 .presentation .presentation__article .article__button .fa-solid.fa-store {
   width: 18px;
@@ -245,6 +249,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
   margin: 0px;
   position: absolute;
   top: 13px;
@@ -276,6 +281,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
 }
 .restaurants .restaurants__cards .card .card-content .heart-gradient {
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
@@ -300,6 +306,7 @@ footer .footer__text-icon {
 }
 footer .footer__text-icon div {
   display: flex;
+  flex-direction: row;
   gap: 11px;
 }
 footer .footer__text-icon div .fa-solid {
@@ -382,6 +389,7 @@ footer .footer__list a {
   .restaurants .restaurants__cards {
     display: flex;
     flex-direction: row;
+    gap: 0;
     flex-wrap: wrap;
     row-gap: 50px;
     -moz-column-gap: 100px;
@@ -405,10 +413,12 @@ footer .footer__list a {
   footer .footer__content {
     display: flex;
     flex-direction: row;
+    gap: 0;
   }
   footer .footer__content .footer__text-icon {
     display: flex;
     flex-direction: row;
+    gap: 7px;
     margin-right: 44px;
   }
   footer .footer__content .footer__list {

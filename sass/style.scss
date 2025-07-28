@@ -5,6 +5,7 @@
 
 /*Variables*/
 
+/*var-color*/
 $main-color: #F6F6F6;
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
@@ -16,37 +17,64 @@ $card__text--button-color : #008766;
 $white-color: #FFFFFF;
 $black-color: #000000;
 
+/*var-font*/
+$main-font-family: 'Roboto', 'sans-serif';
+$logo-font-family: 'Shrikhand', 'sans-serif';
+
+/*var-gradient*/
+$linear-gradient: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+$linear-gradient-light: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(200.64deg, #9356DC -5.2%, #FF79DA 110.74%);
+
+/*var-media queries*/
+$min-width-mobile: 325px;
+$min-width-desktop: 1024px;
+$max-widdth-desktop: 1440px;
+
+
 /*Mixins*/
 
+/*var-size*/
 @mixin text-logo {
-    font-family: 'Shrikhand', 'sans-serif';
+    font-family: $logo-font-family;
     font-weight: 400;
 }
 
+@mixin text-font ($weight, $size) {
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin box-size ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
 /*var- display: flex*/
-@mixin flex-center {
+@mixin flex-center ($gap: 0) {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: $gap;
 }
 @mixin flex-items-center {
     display: flex;
     align-items: center;
 }
-@mixin flex-column {
+@mixin flex-column ($gap: 0) {
     display: flex;
     flex-direction: column;
+    gap: $gap;
 }
-@mixin flex-row {
+@mixin flex-row ($gap: 0) {
     display: flex;
     flex-direction: row;
+    gap: $gap;
 }
 
 /*var- button*/
 @mixin button-reservation {
-    width: 218px;
-    height: 50px;
-    background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+    @include box-size(218px,50px);
+    background: $linear-gradient;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
     cursor: pointer;
@@ -58,42 +86,35 @@ $black-color: #000000;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
 @mixin button-image {
-    width: 80px;
-    height: 29px;
+    @include box-size(80px,29px);
     background-color: $tertiary-color;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
     border-radius: 2px;
 }
 
-@mixin icon-size ($width, $height) {
-    width: $width;
-    height: $height;
-}
 
 /*Début du code sass*/
 
 body {
     background-color: $main-color;
-    margin: 0px;
-    font-family: 'Roboto', 'sans-serif';
+    margin: 0;
+    font-family: $main-font-family;
     color: $black-color;
-    min-width: 325px;
-    max-width: 1440px;
+    min-width: $min-width-mobile;
+    max-width: $max-widdth-desktop;
 }
 
 .loader {
-    width: 100vw;       
-    height: 100vh;
+    @include box-size(100vw,100vh);
     @include flex-center;
     animation: loader 0s 1.15s forwards;
 
     &__bar {
-        width: 50vw;
-        height: 10vh;
+        @include box-size(50vw,10vh);
         border: 1px solid $black-color;
         transform: scaleX(0);
         transform-origin: left;
-        background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+        background: $linear-gradient;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
         animation: loader__bar 1s 150ms forwards;
     }
@@ -101,8 +122,7 @@ body {
 
 @keyframes loader {
   to {
-    height: 0;
-    width: 0;
+    @include box-size(0,0);
     border: none;
   }
 }
@@ -135,7 +155,7 @@ header {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
     & img {
-        @include icon-size(197px, 36px);
+        @include box-size(197px, 36px);
         @include text-logo;
         font-size: 30px;
     }
@@ -144,37 +164,31 @@ header {
 .location {
     background-color: $location-color;
     color: $dark-grey-color;
-    @include flex-center;
-    gap: 17px;
+    @include flex-center (17px);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     
     & p {
-        font-weight: 500;
-        font-size: 16px;
+        @include text-font(500, 16px);
     }
 }
 
 h1 {
     margin-top: 39px;
-    font-weight: 700;
-    font-size: 24px;
+    @include text-font(700, 24px);
     text-align: center;
 }
 
 h2 {
-    font-weight: 700;
-    font-size: 24px;
-    margin-top: 0px;
+    @include text-font(700, 24px);
+    margin-top: 0;
 }
 
 h3 {
-    font-weight: 500;
-    font-size: 16px;
+    @include text-font(500, 16px);
 }
 
 .reservation h2 {
-    font-weight: 300;
-    font-size: 18px;
+    @include text-font(300, 18px);
     text-align: center;
     color: $dark-grey-color;
 }
@@ -202,7 +216,7 @@ h3 {
         opacity: 0;
         z-index: -1;
         border-radius: 25px;
-        background: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(200.64deg, #9356DC -5.2%, #FF79DA 110.74%);
+        background: $linear-gradient-light;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
         transition : opacity 250ms;
     }
@@ -212,25 +226,23 @@ h3 {
     background-color: $white-color;
     padding: 48px 20px 68px 20px;
 
-    h2 {
+    & h2 {
         margin-bottom: 26px;
     }
 
-    .presentation__article {
-        @include flex-column;
-        gap: 25px;
+    & .presentation__article {
+        @include flex-column (25px);
 
-        .article__button {
+        & .article__button {
             @include button-presentation;
             @include flex-items-center;
             position: relative;
             left: 12px;
             margin-right: 12px;
 
-            .article__number {
-                @include icon-size(24px, 24px);
-                font-size: 14.18px;
-                font-weight: 500;
+            & .article__number {
+                @include box-size(24px, 24px);
+                @include text-font(500, 14.18px);
                 color: $white-color;
                 border-radius: 50%;
                 background-color: $primary-color;
@@ -238,18 +250,17 @@ h3 {
                 position: relative;
                 right: 12px;
             }
-            .fa-solid.fa-mobile-screen-button {
-                @include icon-size(13px, 20px);
+            & .fa-solid.fa-mobile-screen-button {
+                @include box-size(13px, 20px);
                 @include flex-center;
             }
-            .fa-solid.fa-store {
-                @include icon-size(18px, 18px);
+            & .fa-solid.fa-store {
+                @include size(18px, 18px);
                 color: $primary-color;
             }
-            .fa-solid {
+            & .fa-solid {
                 color: $presentation-icon-color;
-                margin-left: 10px;
-                margin-right: 27px;
+                margin: 0 27px 0 10px;
             }
         }
     }
@@ -258,74 +269,65 @@ h3 {
 .restaurants {
     padding: 54px 18px 66px 17px;
 
-    .restaurants__cards {
-        @include flex-column;
-        gap: 18px;
+    & .restaurants__cards {
+        @include flex-column (18px);
 
-        a {
+        & a {
             text-decoration: unset;
             color: $black-color;
         }
 
-        .card {
-            @include flex-column;
-            gap: 16px;
+        & .card {
+            @include flex-column (16px);
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             background-color: $white-color;
 
-            .card__image {
+            & .card__image {
                 position: relative;
 
-                img {
-                    @include icon-size(100%, 174px);
+                & img {
+                    @include box-size(100%, 174px);
                     object-fit: cover;
                     border-top-left-radius: 15px;
                     border-top-right-radius: 15px;
                 }
 
-                .card__image--button {
+                & .card__image--button {
                     color: $card__text--button-color;
-                    font-weight: 500;
-                    font-size: 14px;
+                    @include text-font(500, 14px);
                     @include button-image;
                     @include flex-center;
-                    margin: 0px;
+                    margin: 0;
                     position: absolute;
                     top: 13px;
                     right: 12px;
                 }
             }
 
-            .card-content {
+            & .card-content {
                 @include flex-items-center;
                 justify-content: space-between;
-                padding-left: 13px;
-                padding-right: 25px;
+                padding: 0 25px 0 13px;
 
-                .card-title {
-                margin-top: 0px;
-                margin-bottom: 5px;
-                font-weight: 700;
-                font-size: 18px;
+                & .card-title {
+                margin: 0 0 5px 0;
+                @include text-font(700, 18px);
                 }
 
-                .card-subtitle {
-                margin-top: 0px;
-                margin-bottom: 12px;
-                font-weight: 300;
-                font-size: 17px;
+                & .card-subtitle {
+                margin: 0 0 12px 0;
+                @include text-font(300, 17px);
                 }
 
-                .fa-solid,
-                .fa-regular {
-                    width: 22px;
-                    font-size: 21px;
+                & .fa-solid,
+                & .fa-regular {
+                    @include box-size(22px,21px);
                     @include flex-center;
                 }
 
-                .heart-gradient {
-                background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+                & .heart-gradient {
+                background: $linear-gradient;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 }
@@ -338,49 +340,42 @@ footer {
     background-color: $dark-grey-color;
     padding: 22px 25px;
     
-    .footer__logo {
-        @include icon-size(139px, 27px);
+    & .footer__logo {
+        @include box-size(139px, 27px);
         margin-bottom: 16px;
     }
 
-    .footer__text-icon {
-        @include flex-column;
-        gap: 7px;
+    & .footer__text-icon {
+        @include flex-column (7px);
 
-        div {
-            display: flex;
-            gap: 11px;
+        & div {
+            @include flex-row (11px);
 
-            .fa-solid {
+            & .fa-solid {
                 color: $white-color;
-                width: 11px;
-                font-size: 13px;
+                @include box-size(11px,13px);
                 @include flex-items-center;
             }
 
-            a {
+            & a {
                 text-decoration: unset;
                 color: $white-color;
-                font-weight: 500;
-                font-size: 16px;
+                @include text-font(500, 16px);
             }
         }
     }
 
-    .footer__list {
-        margin-top: 7px;
-        margin-bottom: 0px;
-        padding: 0px;
+    & .footer__list {
+        margin: 7px 0 0 0;
+        padding: 0;
         list-style: none;
         color: $white-color;
-        @include flex-column;
-        gap: 7px;
+        @include flex-column (7px);
 
-        a {
+        & a {
             text-decoration: unset;
             color: $white-color;
-            font-weight: 400;
-            font-size: 16px;
+            @include text-font(400, 16px);
         }
     }
 }
@@ -395,13 +390,11 @@ body {
 
 .location {
     box-shadow: none;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 section {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0 30px 0;
 }
 
 h1 {
@@ -409,14 +402,12 @@ h1 {
 }
 
 .reservation {
-    @include flex-column;
-    gap: 18px;
+    @include flex-column (18px);
 
     & h1,
     & h2,
     & h3 {
-        margin-top: 0;
-        margin-bottom: 0;
+        margin: 0;
     }
 }
 
@@ -429,8 +420,7 @@ h1 {
     }
 
     & .presentation__article{
-        @include flex-row;
-        gap: 24px;
+        @include flex-row (24px);
     }
 
         & .article__button {
@@ -477,15 +467,13 @@ footer {
         @include flex-row;
     
         & .footer__text-icon {
-            @include flex-row;
+            @include flex-row (7px);
             margin-right: 44px;
         }
 
         & .footer__list {
-            margin-top: 0;
-            margin-right: 90px;
-            @include flex-row;
-            gap: 16px;
+            margin: 0 90px 0 0;
+            @include flex-row (16px);
         }
     }
 }
