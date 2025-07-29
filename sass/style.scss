@@ -28,7 +28,7 @@ $linear-gradient-light: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(25
 /*var-media queries*/
 $min-width-mobile: 325px;
 $min-width-desktop: 1024px;
-$max-widdth-desktop: 1440px;
+$max-width-desktop: 1440px;
 
 
 /*Mixins*/
@@ -56,15 +56,18 @@ $max-widdth-desktop: 1440px;
     justify-content: center;
     gap: $gap;
 }
+
 @mixin flex-items-center {
     display: flex;
     align-items: center;
 }
+
 @mixin flex-column ($gap: 0) {
     display: flex;
     flex-direction: column;
     gap: $gap;
 }
+
 @mixin flex-row ($gap: 0) {
     display: flex;
     flex-direction: row;
@@ -79,12 +82,14 @@ $max-widdth-desktop: 1440px;
     border-radius: 25px;
     cursor: pointer;
 }
+
 @mixin button-presentation {
     height: 72.38px;
     background-color: $main-color;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
+
 @mixin button-image {
     @include box-size(80px,29px);
     background-color: $tertiary-color;
@@ -101,7 +106,7 @@ body {
     font-family: $main-font-family;
     color: $black-color;
     min-width: $min-width-mobile;
-    max-width: $max-widdth-desktop;
+    max-width: $max-width-desktop;
 
     @media (min-width: $min-width-desktop) {
     margin: auto;
@@ -165,8 +170,8 @@ header {
     }
 }
 
-@media (min-width: $min-width-desktop) {
 section {
+    @media (min-width: $min-width-desktop) {
     margin: 30px 0 30px 0;
     }
 }
@@ -271,7 +276,7 @@ h3 {
         }
     }
 
-    & .presentation__article {
+    &__article {
         @include flex-column (25px);
     
         @media (min-width: $min-width-desktop) {
@@ -304,7 +309,7 @@ h3 {
                 @include flex-center;
             }
             & .fa-solid.fa-store {
-                @include size(18px, 18px);
+                @include box-size(18px, 18px);
                 color: $primary-color;
             }
             & .fa-solid {
@@ -328,7 +333,7 @@ h3 {
         }
     }
 
-    & .restaurants__cards {
+    &__cards {
         @include flex-column (18px);
 
         @media (min-width: $min-width-desktop) {
@@ -353,7 +358,7 @@ h3 {
             border-radius: 15px;
             background-color: $white-color;
 
-            & .card__image {
+             &__image {
                 position: relative;
 
                 & img {
@@ -363,7 +368,7 @@ h3 {
                     border-top-right-radius: 15px;
                 }
 
-                & .card__image--button {
+                &--button {
                     color: $card__text--button-color;
                     @include text-font(500, 14px);
                     @include button-image;
@@ -375,7 +380,7 @@ h3 {
                 }
             }
 
-            & .card-content {
+            &__content {
                 @include flex-items-center;
                 justify-content: space-between;
                 padding: 0 25px 0 13px;
