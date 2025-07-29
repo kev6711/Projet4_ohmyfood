@@ -102,6 +102,10 @@ body {
     color: $black-color;
     min-width: $min-width-mobile;
     max-width: $max-widdth-desktop;
+
+    @media (min-width: $min-width-desktop) {
+    margin: auto;
+    }
 }
 
 .loader {
@@ -161,11 +165,22 @@ header {
     }
 }
 
+@media (min-width: $min-width-desktop) {
+section {
+    margin: 30px 0 30px 0;
+    }
+}
+
 .location {
     background-color: $location-color;
     color: $dark-grey-color;
     @include flex-center (17px);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media (min-width: $min-width-desktop) {
+    box-shadow: none;
+    margin: 0;
+    }
     
     & p {
         @include text-font(500, 16px);
@@ -176,6 +191,10 @@ h1 {
     margin-top: 39px;
     @include text-font(700, 24px);
     text-align: center;
+
+    @media (min-width: $min-width-desktop) {
+    font-size: 40px;
+    }
 }
 
 h2 {
@@ -187,13 +206,25 @@ h3 {
     @include text-font(500, 16px);
 }
 
-.reservation h2 {
+.reservation {
+   
+    & h2 {
     @include text-font(300, 18px);
     text-align: center;
     color: $dark-grey-color;
-}
+    }
 
-.reservation__button {
+    @media (min-width: $min-width-desktop) {
+    @include flex-column (18px);
+
+    & h1,
+    & h2,
+    & h3 {
+        margin: 0;
+    }
+    }
+
+    &__button {
     margin: 27px auto 57px auto;
     color: $white-color;
     @include flex-center;
@@ -201,24 +232,25 @@ h3 {
     position: relative;
     z-index: 1;
 
-    &:hover {
-        &::after {
-            opacity: 1;
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
         }
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        z-index: -1;
-        border-radius: 25px;
-        background: $linear-gradient-light;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
-        transition : opacity 250ms;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            z-index: -1;
+            border-radius: 25px;
+            background: $linear-gradient-light;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+            transition : opacity 250ms;
+        }
     }
 }
 
@@ -226,12 +258,25 @@ h3 {
     background-color: $white-color;
     padding: 48px 20px 68px 20px;
 
+    @media (min-width: $min-width-desktop) {
+    margin: 0;
+    padding: 50px 180px;
+    }
+
     & h2 {
         margin-bottom: 26px;
+
+        @media (min-width: $min-width-desktop) {
+        margin-bottom: 25px;
+        }
     }
 
     & .presentation__article {
         @include flex-column (25px);
+    
+        @media (min-width: $min-width-desktop) {
+        @include flex-row (24px);
+        }
 
         & .article__button {
             @include button-presentation;
@@ -239,6 +284,10 @@ h3 {
             position: relative;
             left: 12px;
             margin-right: 12px;
+
+            @media (min-width: $min-width-desktop) {
+            width: 100%;
+            }
 
             & .article__number {
                 @include box-size(24px, 24px);
@@ -269,12 +318,33 @@ h3 {
 .restaurants {
     padding: 54px 18px 66px 17px;
 
+    @media (min-width: $min-width-desktop) {
+    padding: 0 180px;
+    }
+    
+    & h2 {
+        @media (min-width: $min-width-desktop) {
+        margin-bottom: 28px;
+        }
+    }
+
     & .restaurants__cards {
         @include flex-column (18px);
+
+        @media (min-width: $min-width-desktop) {
+        @include flex-row;
+        flex-wrap: wrap;
+        row-gap: 50px;
+        column-gap: 100px;
+        }
 
         & a {
             text-decoration: unset;
             color: $black-color;
+
+            @media (min-width: $min-width-desktop) {
+            width: calc((100% - 100px) / 2);
+            }
         }
 
         & .card {
@@ -310,6 +380,10 @@ h3 {
                 justify-content: space-between;
                 padding: 0 25px 0 13px;
 
+                @media (min-width: $min-width-desktop) {
+                padding-left: 18.5px;
+                }
+
                 & .card-title {
                 margin: 0 0 5px 0;
                 @include text-font(700, 18px);
@@ -340,142 +414,70 @@ footer {
     background-color: $dark-grey-color;
     padding: 22px 25px;
     
-    & .footer__logo {
-        @include box-size(139px, 27px);
-        margin-bottom: 16px;
-    }
-
-    & .footer__text-icon {
-        @include flex-column (7px);
-
-        & div {
-            @include flex-row (11px);
-
-            & .fa-solid {
-                color: $white-color;
-                @include box-size(11px,13px);
-                @include flex-items-center;
-            }
-
-            & a {
-                text-decoration: unset;
-                color: $white-color;
-                @include text-font(500, 16px);
-            }
-        }
-    }
-
-    & .footer__list {
-        margin: 7px 0 0 0;
-        padding: 0;
-        list-style: none;
-        color: $white-color;
-        @include flex-column (7px);
-
-        & a {
-            text-decoration: unset;
-            color: $white-color;
-            @include text-font(400, 16px);
-        }
-    }
-}
-
-/* Media Queries Desktop (more than 1024px) */
-
-@media (min-width: 1024px) {
-
-body {
-    margin: auto;
-}
-
-.location {
-    box-shadow: none;
-    margin: 0;
-}
-
-section {
-    margin: 30px 0 30px 0;
-}
-
-h1 {
-    font-size: 40px;
-}
-
-.reservation {
-    @include flex-column (18px);
-
-    & h1,
-    & h2,
-    & h3 {
-        margin: 0;
-    }
-}
-
-.presentation {
-    margin: 0;
-    padding: 50px 180px;
-
-    & h2 {
-        margin-bottom: 25px;
-    }
-
-    & .presentation__article{
-        @include flex-row (24px);
-    }
-
-        & .article__button {
-            width: 100%;
-        }
-}
-
-.restaurants {
-    padding: 0 180px;
-
-    & h2 {
-        margin-bottom: 28px;
-    }
-
-    & .restaurants__cards {
-        @include flex-row;
-        flex-wrap: wrap;
-        row-gap: 50px;
-        column-gap: 100px;
-
-        & a {
-            width: calc((100% - 100px) / 2);
-        }
-
-        & .card {
-            & .card-content {
-                padding-left: 18.5px;
-            }
-        }
-    }
-}
-
-footer {
+    @media (min-width: $min-width-desktop) {
     padding: 30px 25px;
     display: flex;
     flex-direction: row-reverse;
     align-items: end;
-
+    }
+    
     & .footer__logo {
+        @include box-size(139px, 27px);
+        margin-bottom: 16px;
+
+        @media (min-width: $min-width-desktop) {
         margin: 0;
+        }
     }
 
     & .footer__content {
-        @include flex-row;
     
+        @media (min-width: $min-width-desktop) {
+        @include flex-row;
+        }
+
         & .footer__text-icon {
+            @include flex-column (7px);
+
+            @media (min-width: $min-width-desktop) {
             @include flex-row (7px);
             margin-right: 44px;
+            } 
+            
+            & div {
+                @include flex-row (11px);
+
+                & .fa-solid {
+                    color: $white-color;
+                    @include box-size(11px,13px);
+                    @include flex-items-center;
+                }
+
+                & a {
+                    text-decoration: unset;
+                    color: $white-color;
+                    @include text-font(500, 16px);
+                }
+            }
         }
 
         & .footer__list {
+            margin: 7px 0 0 0;
+            padding: 0;
+            list-style: none;
+            color: $white-color;
+            @include flex-column (7px);
+
+            @media (min-width: $min-width-desktop) {
             margin: 0 90px 0 0;
             @include flex-row (16px);
+            } 
+
+            & a {
+                text-decoration: unset;
+                color: $white-color;
+                @include text-font(400, 16px);
+            }
         }
     }
-}
-
 }
