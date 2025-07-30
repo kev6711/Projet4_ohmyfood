@@ -1,0 +1,95 @@
+.header__menu {
+    @include flex-center (42px);
+
+    & .fa-solid {
+        color: $dark-grey-color;
+        @include box-size (17.2px, 16px);
+    }
+}
+
+.main__image {
+    @include box-size (100%, 275px);
+}
+
+.menu {
+    background-color: $main-color;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    bottom: 59px;
+    @include flex-column (40px);
+    padding: 0 13px;
+
+    & section {
+        @include flex-column (12px);
+    }
+
+    &__title {
+        @include flex-items-center-between;
+        padding-top: 32px;
+    
+
+        & h1 {
+            @include text-logo;
+            @include text-font (400, 28px);
+            color: $logo-color;
+            margin: 0;
+        }
+
+        & .fa-regular {
+            @include box-size (22px, 21px);
+            color: $logo-color;
+            font-size: 21px;
+        }
+    }
+
+    &__starter {
+        & h2 {
+            @include text-font (300, 16px);
+            margin: 0;
+        }
+
+        & h2::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: $tertiary-color;
+            margin-top: 9px;
+        }
+    }
+
+    .card {
+        @include flex-items-center-between;
+        background-color: $white-color;
+        height: 69px;
+        box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
+        border-radius: 15.04px;
+        padding: 0 15px;
+
+        &__text {
+            @include flex-column (5px);
+
+            & h3 {
+                font-size: 18px;
+                margin: 0;
+            }
+
+            & p {
+                @include text-font (300, 15.04px);
+                margin: 0;
+            }
+        }
+
+        &__price {
+            @include text-font (700, 15.04px);
+            color: $dark-grey-color;
+            margin-top: 26px;
+        }
+    }
+
+    & .reservation__button {
+        width: 186px;
+        margin: auto;
+    }
+}
+
