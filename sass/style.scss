@@ -115,7 +115,7 @@ $max-width-desktop: 1440px;
 /*Début du code sass*/
 
 body {
-    background-color: $main-color;
+    background-color: $white-color;
     margin: 0;
     font-family: $main-font-family;
     color: $black-color;
@@ -183,12 +183,6 @@ header {
     }
 }
 
-section {
-    @media (min-width: $min-width-desktop) {
-    margin: 30px 0 30px 0;
-    }
-}
-
 .location {
     background-color: $location-color;
     color: $dark-grey-color;
@@ -225,6 +219,10 @@ h3 {
 }
 
 .reservation {
+
+    @media (min-width: $min-width-desktop) {
+    margin: 30px 0;
+    }
    
     & h2 {
     @include text-font(300, 18px);

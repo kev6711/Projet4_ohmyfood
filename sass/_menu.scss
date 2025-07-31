@@ -1,80 +1,117 @@
+/*------------Variables------------*/
+
+/*var-durée et délais d'animation pour l'apparition des menus */
 $transform-menu-Y-duration: 1s;
 $animation-dishes-delay: $transform-menu-Y-duration;
 $animation-desserts-delay: $transform-menu-Y-duration + $animation-dishes-delay;
 
+/*var-valeurs de chevauchement du menu sur l'image */
+$menu-overlap-mobile: 55px;
+$menu-overlap-desktop: 40px;
+
+/*vaer-largeur du conteneur de la coche */
 $card__check-width: 59px;
+
+
+/*------------Mixins*------------*/
 
 @mixin transform-menu-Y {
     transform-origin: 50% 0%;
     transform: scaleY(0);
 }
 
-@mixin text-overflow {
+@mixin text-ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin: 0;
 }
 
+/*------------Début code sass*------------*/
+
 .header__menu {
-    @include flex-center (42px);
+    @include flex-center(42px);
 
     & .fa-solid {
         color: $dark-grey-color;
-        @include logo-size (17.2px, 16px);
+        @include logo-size(17.2px, 16px);
     }
 }
 
 .main__image {
-    @include box-size (100%, 275px);
-}
+    @include box-size(100%, 275px);
+    object-fit: cover;
 
-
-section {
-    @include flex-column (12px);
+    @media (min-width: $min-width-desktop) {
+        height: 383px;
+    }
 }
 
 .menu {
     background-color: $main-color;
     border-radius: 40px 40px 0 0;
     position: relative;
-    bottom: 59px;
-    @include flex-column (40px);
+    bottom: $menu-overlap-mobile;
+    @include flex-column(40px);
     padding: 0 13px;
+    margin-bottom: -$menu-overlap-mobile;
 
-    &__title {
+    @media (min-width: $min-width-desktop) {
+        margin: auto;
+        width: 1055px;
+        padding: unset;
+        bottom: $menu-overlap-desktop;
+        margin-bottom: -$menu-overlap-desktop;
+    }
+
+    section {
+        @include flex-column(12px);
+
+        @media (min-width: $min-width-desktop) {
+            margin: auto;
+        }
+    }
+
+    & .menu__title {
         @include flex-row;
         @include flex-items-center-between;
         padding-top: 32px;
+
+        @media (min-width: $min-width-desktop) {
+            justify-content: center;
+            gap: 24px;
+            padding-top: 51px;
+        }
     
 
-        & h1 {
+        h1 {
             @include text-logo;
-            @include text-font (400, 28px);
+            @include text-font(400, 28px);
             color: $logo-color;
             margin: 0;
         }
 
-        & .fa-regular {
-            @include logo-size (22px, 21px);
+        .fa-regular {
+            @include logo-size(22px, 21px);
             color: $logo-color;
         }
     }
 
-    /*Animations décalage apparitions menus (entrées puis plats puis desserts)*/
+    /*Animations d'apparition des sections (entrées puis plats puis desserts)*/
 
-    &__starter{
+    &__starter,
+    &__dishes,
+    &__desserts {
         @include transform-menu-Y;
         animation: menu $transform-menu-Y-duration ease-in-out forwards;
     }
 
     &__dishes {
-        @include transform-menu-Y;
-        animation: menu $transform-menu-Y-duration $animation-dishes-delay ease-in-out forwards ;
+        animation-delay: $animation-dishes-delay;
     }
 
     &__desserts {
-        @include transform-menu-Y;
-        animation: menu $transform-menu-Y-duration $animation-desserts-delay ease-in-out forwards ;
+        animation-delay: $animation-desserts-delay;
     }
 
     @keyframes menu {
@@ -86,20 +123,17 @@ section {
         }
     }
 
-    /*Fin de l'animation*/
-
-    & h2 {
-        @include text-font (300, 16px);
+    h2 {
+        @include text-font(300, 16px);
         margin: 0;
-    }
 
-    & h2::after {
-        content: "";
-        display: block;
-        width: 40px;
-        height: 3px;
-        background-color: $tertiary-color;
-        margin-top: 9px;
+        &::after {
+            content: "";
+            display: block;
+            @include box-size(40px, 3px);
+            background-color: $tertiary-color;
+            margin-top: 9px;
+        }
     }
 
     .card {
@@ -112,33 +146,37 @@ section {
         position: relative;
         overflow: hidden;
 
-        &:hover .card__check {
-            left: calc(100% - $card__check-width);
+        @media (min-width: $min-width-desktop) {
+            width: 634px;
         }
 
-        &:hover .card__price {
-            margin-right: $card__check-width;
+        &:hover {
+            .card__check {
+                left: calc(100% - $card__check-width);
+            }
+
+            .card__price {
+                margin-right: $card__check-width;
+            }
         }
 
         &__text {
-            @include flex-column (5px);
+            @include flex-column(5px);
             min-width: 0;
 
             & h3 {
                 font-size: 18px;
-                margin: 0;
-                @include text-overflow;
+                @include text-ellipsis;
             }
 
             & p {
-                @include text-font (300, 15.04px);
-                margin: 0;
-                @include text-overflow;
+                @include text-font(300, 15.04px);
+                @include text-ellipsis;
             }
         }
 
         &__price {
-            @include text-font (700, 15.04px);
+            @include text-font(700, 15.04px);
             color: $dark-grey-color;
             margin-top: 26px;
             transition: margin-right 1s;
@@ -146,7 +184,7 @@ section {
         
         &__check {
             background-color: $tertiary-color;
-            @include box-size ($card__check-width, 100%);
+            @include box-size($card__check-width, 100%);
             border-radius: 0 15px 15px 0;
             @include flex-center;
             position: absolute;
@@ -163,7 +201,7 @@ section {
 
     & .reservation__button {
         width: 186px;
-        margin: auto;
+        margin: 0 auto 40px auto;
     }
 }
 
