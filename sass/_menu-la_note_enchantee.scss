@@ -1,5 +1,5 @@
-.main__image {
+.main__image--la_note_enchantee {
     @media (min-width: $min-width-desktop) {
-        object-position: center 60%;
+        object-position: $la_note_enchantee-image-focus;
     }
 }

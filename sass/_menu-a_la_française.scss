@@ -1,6 +1,6 @@
-.main__image {
+.main__image--a_la_française {
 
     @media (min-width: $min-width-desktop) {
-        object-position: center 68%;
+        object-position: $a_la_française-image-focus;
     }
 }

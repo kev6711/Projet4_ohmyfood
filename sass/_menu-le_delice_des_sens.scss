@@ -1,6 +1,6 @@
-.main__image {
+.main__image--le_delice_des_sens {
     
     @media (min-width: $min-width-desktop) {
-        object-position: center 70%;
+        object-position: $le_delice_des_sens-image-focus;
     }
 }

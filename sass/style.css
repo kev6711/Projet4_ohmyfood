@@ -7,6 +7,7 @@
 /*var-font*/
 /*var-gradient*/
 /*var-media queries*/
+/*var-zone de zoom sur image des pages restaurants*/
 /*------------Mixins------------*/
 /*var-size*/
 /*var- display: flex*/
@@ -35,15 +36,20 @@
   font-size: 16px;
 }
 
-.main__image {
+main > img {
   width: 100%;
   height: 275px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media (min-width: 1024px) {
-  .main__image {
+  main > img {
     height: 383px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main__image--palette-du-gout {
     -o-object-position: center 58%;
        object-position: center 58%;
   }
@@ -152,6 +158,7 @@
   padding: 0 15px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 @media (min-width: 1024px) {
   .menu .card {
@@ -219,21 +226,21 @@
 }
 
 @media (min-width: 1024px) {
-  .main__image {
+  .main__image--le_delice_des_sens {
     -o-object-position: center 70%;
        object-position: center 70%;
   }
 }
 
 @media (min-width: 1024px) {
-  .main__image {
+  .main__image--la_note_enchantee {
     -o-object-position: center 60%;
        object-position: center 60%;
   }
 }
 
 @media (min-width: 1024px) {
-  .main__image {
+  .main__image--a_la_française {
     -o-object-position: center 68%;
        object-position: center 68%;
   }

@@ -44,13 +44,18 @@ $card__check-width: 59px;
     }
 }
 
-.main__image {
+main > img {
     @include box-size(100%, 275px); 
     object-fit: cover;
 
     @media (min-width: $min-width-desktop) {
         height: 383px;
-        object-position: center 58%;
+    }
+}
+
+.main__image--palette-du-gout {
+    @media (min-width: $min-width-desktop) {
+        object-position: $palette_du_gout-image-focus;
     }
 }
 
@@ -152,6 +157,7 @@ $card__check-width: 59px;
         padding: 0 15px;
         position: relative;
         overflow: hidden;
+        cursor: pointer;
 
         @media (min-width: $min-width-desktop) {
             width: 634px;
