@@ -31,19 +31,26 @@ $card__check-width: 59px;
 
 .header__menu {
     @include flex-center(42px);
+    position: relative;
 
-    & .fa-solid {
-        color: $dark-grey-color;
-        @include logo-size(17.2px, 16px);
+    .goback-icon {
+        position: absolute;
+        left: 23px;
+
+        .fa-solid {
+            color: $dark-grey-color;
+            @include logo-size(17.2px, 16px);
+        }
     }
 }
 
 .main__image {
-    @include box-size(100%, 275px);
+    @include box-size(100%, 275px); 
     object-fit: cover;
 
     @media (min-width: $min-width-desktop) {
         height: 383px;
+        object-position: center 58%;
     }
 }
 
@@ -195,6 +202,8 @@ $card__check-width: 59px;
                 color: $tertiary-color;
                 background-color: $white-color;
                 font-size: 20px;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
             }
         }
     }

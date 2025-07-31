@@ -12,19 +12,24 @@
 /*var- display: flex*/
 /*var- button*/
 /*Import _menu.scss*/
-/*Variables*/
+/*------------Variables------------*/
 /*var-durée et délais d'animation pour l'apparition des menus */
 /*var-valeurs de chevauchement du menu sur l'image */
 /*vaer-largeur du conteneur de la coche */
-/*Mixins*/
-/*Début code sass*/
+/*------------Mixins*------------*/
+/*------------Début code sass*------------*/
 .header__menu {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 42px;
+  position: relative;
 }
-.header__menu .fa-solid {
+.header__menu .goback-icon {
+  position: absolute;
+  left: 23px;
+}
+.header__menu .goback-icon .fa-solid {
   color: #353535;
   width: 17.2px;
   font-size: 16px;
@@ -39,6 +44,8 @@
 @media (min-width: 1024px) {
   .main__image {
     height: 383px;
+    -o-object-position: center 58%;
+       object-position: center 58%;
   }
 }
 
@@ -202,6 +209,9 @@
   color: #99E2D0;
   background-color: #FFFFFF;
   font-size: 20px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 .menu .reservation__button {
   width: 186px;
