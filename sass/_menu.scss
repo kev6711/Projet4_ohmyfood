@@ -1,14 +1,36 @@
+$transform-menu-Y-duration: 1s;
+$animation-dishes-delay: $transform-menu-Y-duration;
+$animation-desserts-delay: $transform-menu-Y-duration + $animation-dishes-delay;
+
+$card__check-width: 59px;
+
+@mixin transform-menu-Y {
+    transform-origin: 50% 0%;
+    transform: scaleY(0);
+}
+
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .header__menu {
     @include flex-center (42px);
 
     & .fa-solid {
         color: $dark-grey-color;
-        @include box-size (17.2px, 16px);
+        @include logo-size (17.2px, 16px);
     }
 }
 
 .main__image {
     @include box-size (100%, 275px);
+}
+
+
+section {
+    @include flex-column (12px);
 }
 
 .menu {
@@ -19,11 +41,8 @@
     @include flex-column (40px);
     padding: 0 13px;
 
-    & section {
-        @include flex-column (12px);
-    }
-
     &__title {
+        @include flex-row;
         @include flex-items-center-between;
         padding-top: 32px;
     
@@ -36,26 +55,51 @@
         }
 
         & .fa-regular {
-            @include box-size (22px, 21px);
+            @include logo-size (22px, 21px);
             color: $logo-color;
-            font-size: 21px;
         }
     }
 
-    &__starter {
-        & h2 {
-            @include text-font (300, 16px);
-            margin: 0;
-        }
+    /*Animations décalage apparitions menus (entrées puis plats puis desserts)*/
 
-        & h2::after {
-            content: "";
-            display: block;
-            width: 40px;
-            height: 3px;
-            background-color: $tertiary-color;
-            margin-top: 9px;
+    &__starter{
+        @include transform-menu-Y;
+        animation: menu $transform-menu-Y-duration ease-in-out forwards;
+    }
+
+    &__dishes {
+        @include transform-menu-Y;
+        animation: menu $transform-menu-Y-duration $animation-dishes-delay ease-in-out forwards ;
+    }
+
+    &__desserts {
+        @include transform-menu-Y;
+        animation: menu $transform-menu-Y-duration $animation-desserts-delay ease-in-out forwards ;
+    }
+
+    @keyframes menu {
+        from {
+            transform: scaleY(0);  
         }
+        to {
+            transform: scaleY(1);
+        }
+    }
+
+    /*Fin de l'animation*/
+
+    & h2 {
+        @include text-font (300, 16px);
+        margin: 0;
+    }
+
+    & h2::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: $tertiary-color;
+        margin-top: 9px;
     }
 
     .card {
@@ -65,18 +109,31 @@
         box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
         border-radius: 15.04px;
         padding: 0 15px;
+        position: relative;
+        overflow: hidden;
+
+        &:hover .card__check {
+            left: calc(100% - $card__check-width);
+        }
+
+        &:hover .card__price {
+            margin-right: $card__check-width;
+        }
 
         &__text {
             @include flex-column (5px);
+            min-width: 0;
 
             & h3 {
                 font-size: 18px;
                 margin: 0;
+                @include text-overflow;
             }
 
             & p {
                 @include text-font (300, 15.04px);
                 margin: 0;
+                @include text-overflow;
             }
         }
 
@@ -84,6 +141,23 @@
             @include text-font (700, 15.04px);
             color: $dark-grey-color;
             margin-top: 26px;
+            transition: margin-right 1s;
+        }
+        
+        &__check {
+            background-color: $tertiary-color;
+            @include box-size ($card__check-width, 100%);
+            border-radius: 0 15px 15px 0;
+            @include flex-center;
+            position: absolute;
+            left: 100%;
+            transition: left 1s;
+
+            & .fa-circle-check {
+                color: $tertiary-color;
+                background-color: $white-color;
+                font-size: 20px;
+            }
         }
     }
 

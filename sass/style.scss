@@ -40,6 +40,11 @@ $max-width-desktop: 1440px;
     font-weight: 400;
 }
 
+@mixin logo-size ($width, $size) {
+    width: $width;
+    font-size: $size;
+}
+
 @mixin text-font ($weight, $size) {
     font-weight: $weight;
     font-size: $size;
@@ -173,9 +178,8 @@ header {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
     & img {
-        @include box-size(197px, 36px);
+        @include logo-size(197px, 36px);
         @include text-logo;
-        font-size: 30px;
     }
 }
 
@@ -314,11 +318,11 @@ h3 {
                 right: 12px;
             }
             & .fa-solid.fa-mobile-screen-button {
-                @include box-size(13px, 20px);
+                @include logo-size(13px, 20px);
                 @include flex-center;
             }
             & .fa-solid.fa-store {
-                @include box-size(18px, 18px);
+                @include logo-size(18px, 18px);
                 color: $primary-color;
             }
             & .fa-solid {
@@ -409,7 +413,7 @@ h3 {
 
                 & .fa-solid,
                 & .fa-regular {
-                    @include box-size(22px,21px);
+                    @include logo-size(22px,21px);
                     @include flex-center;
                 }
 
@@ -435,7 +439,7 @@ footer {
     }
     
     & .footer__logo {
-        @include box-size(139px, 27px);
+        @include logo-size(139px, 27px);
         margin-bottom: 16px;
 
         @media (min-width: $min-width-desktop) {
@@ -462,7 +466,7 @@ footer {
 
                 & .fa-solid {
                     color: $white-color;
-                    @include box-size(11px,13px);
+                    @include logo-size(11px,13px);
                     @include flex-items-center;
                 }
 
