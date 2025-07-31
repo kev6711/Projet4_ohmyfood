@@ -1,9 +1,9 @@
-/*Importations Polices Shrikhand & Roboto*/
+/*------------Importations Polices Shrikhand & Roboto------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*Variables*/
+/*------------Variables------------*/
 
 /*var-color*/
 $main-color: #F6F6F6;
@@ -32,7 +32,7 @@ $min-width-desktop: 1024px;
 $max-width-desktop: 1440px;
 
 
-/*Mixins*/
+/*------------Mixins------------*/
 
 /*var-size*/
 @mixin text-logo {
@@ -109,10 +109,14 @@ $max-width-desktop: 1440px;
     border-radius: 2px;
 }
 
-/*Import _menu.scss*/
+/*------------Import _menu.scss------------*/
 @import 'menu';
+@import 'menu-le_delice_des_sens';
+@import 'menu-la_note_enchantee';
+@import 'menu-a_la_française';
 
-/*Début du code sass*/
+
+/*------------Début du code sass------------*/
 
 body {
     background-color: $white-color;

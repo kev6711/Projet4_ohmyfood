@@ -1,17 +1,17 @@
 @charset "UTF-8";
-/*Importations Polices Shrikhand & Roboto*/
+/*------------Importations Polices Shrikhand & Roboto------------*/
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-/*Variables*/
+/*------------Variables------------*/
 /*var-color*/
 /*var-font*/
 /*var-gradient*/
 /*var-media queries*/
-/*Mixins*/
+/*------------Mixins------------*/
 /*var-size*/
 /*var- display: flex*/
 /*var- button*/
-/*Import _menu.scss*/
+/*------------Import _menu.scss------------*/
 /*------------Variables------------*/
 /*var-durée et délais d'animation pour l'apparition des menus */
 /*var-valeurs de chevauchement du menu sur l'image */
@@ -218,7 +218,28 @@
   margin: 0 auto 40px auto;
 }
 
-/*Début du code sass*/
+@media (min-width: 1024px) {
+  .main__image {
+    -o-object-position: center 70%;
+       object-position: center 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main__image {
+    -o-object-position: center 60%;
+       object-position: center 60%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main__image {
+    -o-object-position: center 68%;
+       object-position: center 68%;
+  }
+}
+
+/*------------Début du code sass------------*/
 body {
   background-color: #FFFFFF;
   margin: 0;
