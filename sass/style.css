@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*------------Importations des variables et des mixins------------*/
 /*------------Importations Polices Shrikhand & Roboto------------*/
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
@@ -8,17 +9,16 @@
 /*var-gradient*/
 /*var-media queries*/
 /*var-zone de zoom sur image des pages restaurants*/
+/*var-durée et délais d'animation pour l'apparition des menus */
+/*var-valeurs de chevauchement du menu sur l'image des menus */
+/*vaer-largeur du conteneur de la coche des menus */
 /*------------Mixins------------*/
 /*var-size*/
 /*var- display: flex*/
 /*var- button*/
-/*------------Import _menu.scss------------*/
-/*------------Variables------------*/
-/*var-durée et délais d'animation pour l'apparition des menus */
-/*var-valeurs de chevauchement du menu sur l'image */
-/*vaer-largeur du conteneur de la coche */
-/*------------Mixins*------------*/
-/*------------Début code sass*------------*/
+/*------------Importations des styles des menus------------*/
+/*------------Importations des variables et des mixins------------*/
+/*------------Importations des variables et des mixins------------*/
 .header__menu {
   display: flex;
   align-items: center;
@@ -225,6 +225,8 @@ main > img {
   margin: 0 auto 40px auto;
 }
 
+/*------------Importations des variables et des mixins------------*/
+/*------------Importations des variables et des mixins------------*/
 @media (min-width: 1024px) {
   .main__image--le_delice_des_sens {
     -o-object-position: center 70%;
@@ -232,6 +234,8 @@ main > img {
   }
 }
 
+/*------------Importations des variables et des mixins------------*/
+/*------------Importations des variables et des mixins------------*/
 @media (min-width: 1024px) {
   .main__image--la_note_enchantee {
     -o-object-position: center 60%;
@@ -239,6 +243,8 @@ main > img {
   }
 }
 
+/*------------Importations des variables et des mixins------------*/
+/*------------Importations des variables et des mixins------------*/
 @media (min-width: 1024px) {
   .main__image--a_la_française {
     -o-object-position: center 68%;
@@ -246,7 +252,6 @@ main > img {
   }
 }
 
-/*------------Début du code sass------------*/
 body {
   background-color: #FFFFFF;
   margin: 0;
@@ -341,10 +346,9 @@ header img {
 }
 
 h1 {
-  margin-top: 39px;
+  margin-top: 0;
   font-weight: 700;
   font-size: 24px;
-  text-align: center;
 }
 @media (min-width: 1024px) {
   h1 {
@@ -363,16 +367,21 @@ h3 {
   font-size: 16px;
 }
 
+.reservation {
+  background-color: #F6F6F6;
+  padding: 39px 0 57px 0;
+  text-align: center;
+}
 @media (min-width: 1024px) {
   .reservation {
-    margin: 30px 0;
+    padding: 30px 0;
   }
 }
 .reservation h2 {
   font-weight: 300;
   font-size: 18px;
-  text-align: center;
   color: #353535;
+  margin: 0px;
 }
 @media (min-width: 1024px) {
   .reservation {
@@ -385,7 +394,7 @@ h3 {
   }
 }
 .reservation__button {
-  margin: 27px auto 57px auto;
+  margin: 27px auto 0 auto;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -499,11 +508,15 @@ h3 {
 
 .restaurants {
   padding: 54px 18px 66px 17px;
+  background-color: #F6F6F6;
 }
 @media (min-width: 1024px) {
   .restaurants {
-    padding: 0 180px;
+    padding: 30px 180px;
   }
+}
+.restaurants h2 {
+  margin-bottom: 24px;
 }
 @media (min-width: 1024px) {
   .restaurants h2 {
@@ -580,7 +593,7 @@ h3 {
 }
 @media (min-width: 1024px) {
   .restaurants__cards .card__content {
-    padding-left: 18.5px;
+    padding-left: 18.74px;
   }
 }
 .restaurants__cards .card__content .card-title {
@@ -600,6 +613,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0;
+  color: #101010;
 }
 .restaurants__cards .card__content .heart-gradient {
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);

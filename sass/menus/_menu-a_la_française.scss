@@ -1,3 +1,8 @@
+/*------------Importations des variables et des mixins------------*/
+
+@use '../functions/variables_and_mixins' as *;
+
+
 .main__image--a_la_française {
 
     @media (min-width: $min-width-desktop) {

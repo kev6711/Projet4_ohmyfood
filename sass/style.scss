@@ -1,127 +1,19 @@
+/*------------Importations des variables et des mixins------------*/
+
+@use 'functions/variables_and_mixins' as *;
+
+/*------------Importations des styles des menus------------*/
+
+@use 'menus/menu' as *;
+@use 'menus/menu-le_delice_des_sens' as *;
+@use 'menus/menu-la_note_enchantee' as*;
+@use 'menus/menu-a_la_française' as*;
+
 /*------------Importations Polices Shrikhand & Roboto------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*------------Variables------------*/
-
-/*var-color*/
-$main-color: #F6F6F6;
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
-$tertiary-color: #99E2D0;
-$dark-grey-color: #353535;
-$location-color: #EAEAEA;
-$presentation-icon-color: #7E7E7E;
-$card__text--button-color : #008766;
-$white-color: #FFFFFF;
-$black-color: #000000;
-$logo-color: #101010;
-
-/*var-font*/
-$main-font-family: 'Roboto', 'sans-serif';
-$logo-font-family: 'Shrikhand', 'sans-serif';
-
-/*var-gradient*/
-$linear-gradient: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-$linear-gradient-light: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(200.64deg, #9356DC -5.2%, #FF79DA 110.74%);
-
-/*var-media queries*/
-$min-width-mobile: 325px;
-$min-width-desktop: 1024px;
-$max-width-desktop: 1440px;
-
-/*var-zone de zoom sur image des pages restaurants*/
-$palette_du_gout-image-focus: center 58%;
-$la_note_enchantee-image-focus: center 60%;
-$a_la_française-image-focus: center 68%;
-$le_delice_des_sens-image-focus: center 70%;
-
-/*------------Mixins------------*/
-
-/*var-size*/
-@mixin text-logo {
-    font-family: $logo-font-family;
-    font-weight: 400;
-}
-
-@mixin logo-size ($width, $size) {
-    width: $width;
-    font-size: $size;
-}
-
-@mixin text-font ($weight, $size) {
-    font-weight: $weight;
-    font-size: $size;
-}
-
-@mixin box-size ($width, $height) {
-    width: $width;
-    height: $height;
-}
-
-/*var- display: flex*/
-@mixin flex-center ($gap: 0) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $gap;
-}
-
-@mixin flex-items-center {
-    display: flex;
-    align-items: center;
-}
-
-@mixin flex-items-center-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-@mixin flex-column ($gap: 0) {
-    display: flex;
-    flex-direction: column;
-    gap: $gap;
-}
-
-@mixin flex-row ($gap: 0) {
-    display: flex;
-    flex-direction: row;
-    gap: $gap;
-}
-
-/*var- button*/
-@mixin button-reservation {
-    @include box-size(218px,50px);
-    background: $linear-gradient;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-@mixin button-presentation {
-    height: 72.38px;
-    background-color: $main-color;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-@mixin button-image {
-    @include box-size(80px,29px);
-    background-color: $tertiary-color;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 2px;
-}
-
-/*------------Import _menu.scss------------*/
-@import 'menu';
-@import 'menu-le_delice_des_sens';
-@import 'menu-la_note_enchantee';
-@import 'menu-a_la_française';
-
-
-/*------------Début du code sass------------*/
 
 body {
     background-color: $white-color;
@@ -209,9 +101,8 @@ header {
 }
 
 h1 {
-    margin-top: 39px;
+    margin-top: 0;
     @include text-font(700, 24px);
-    text-align: center;
 
     @media (min-width: $min-width-desktop) {
     font-size: 40px;
@@ -229,14 +120,18 @@ h3 {
 
 .reservation {
 
+    background-color: $main-color;
+    padding: 39px 0 57px 0;
+    text-align: center;
+
     @media (min-width: $min-width-desktop) {
-    margin: 30px 0;
+    padding: 30px 0;
     }
    
     & h2 {
     @include text-font(300, 18px);
-    text-align: center;
     color: $dark-grey-color;
+    margin: 0px;
     }
 
     @media (min-width: $min-width-desktop) {
@@ -250,7 +145,7 @@ h3 {
     }
 
     &__button {
-    margin: 27px auto 57px auto;
+    margin: 27px auto 0 auto;
     color: $white-color;
     @include flex-center;
     @include button-reservation;
@@ -342,12 +237,16 @@ h3 {
 
 .restaurants {
     padding: 54px 18px 66px 17px;
+    background-color: $main-color;
 
     @media (min-width: $min-width-desktop) {
-    padding: 0 180px;
+    padding: 30px 180px;
     }
     
     & h2 {
+
+        margin-bottom: 24px;
+
         @media (min-width: $min-width-desktop) {
         margin-bottom: 28px;
         }
@@ -405,7 +304,7 @@ h3 {
                 padding: 0 25px 0 13px;
 
                 @media (min-width: $min-width-desktop) {
-                padding-left: 18.5px;
+                padding-left: 18.74px;
                 }
 
                 & .card-title {
@@ -422,6 +321,7 @@ h3 {
                 & .fa-regular {
                     @include logo-size(22px,21px);
                     @include flex-center;
+                    color: $logo-color;
                 }
 
                 & .heart-gradient {

@@ -1,33 +1,7 @@
-/*------------Variables------------*/
+/*------------Importations des variables et des mixins------------*/
 
-/*var-durée et délais d'animation pour l'apparition des menus */
-$transform-menu-Y-duration: 1s;
-$animation-dishes-delay: $transform-menu-Y-duration;
-$animation-desserts-delay: $transform-menu-Y-duration + $animation-dishes-delay;
+@use '../functions/variables_and_mixins' as *;
 
-/*var-valeurs de chevauchement du menu sur l'image */
-$menu-overlap-mobile: 55px;
-$menu-overlap-desktop: 40px;
-
-/*vaer-largeur du conteneur de la coche */
-$card__check-width: 59px;
-
-
-/*------------Mixins*------------*/
-
-@mixin transform-menu-Y {
-    transform-origin: 50% 0%;
-    transform: scaleY(0);
-}
-
-@mixin text-ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0;
-}
-
-/*------------Début code sass*------------*/
 
 .header__menu {
     @include flex-center(42px);

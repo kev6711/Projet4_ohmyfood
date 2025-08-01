@@ -1,0 +1,135 @@
+/*------------Variables------------*/
+
+/*var-color*/
+$main-color: #F6F6F6;
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+$dark-grey-color: #353535;
+$location-color: #EAEAEA;
+$presentation-icon-color: #7E7E7E;
+$card__text--button-color : #008766;
+$white-color: #FFFFFF;
+$black-color: #000000;
+$logo-color: #101010;
+
+/*var-font*/
+$main-font-family: 'Roboto', 'sans-serif';
+$logo-font-family: 'Shrikhand', 'sans-serif';
+
+/*var-gradient*/
+$linear-gradient: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+$linear-gradient-light: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(200.64deg, #9356DC -5.2%, #FF79DA 110.74%);
+
+/*var-media queries*/
+$min-width-mobile: 325px;
+$min-width-desktop: 1024px;
+$max-width-desktop: 1440px;
+
+/*var-zone de zoom sur image des pages restaurants*/
+$palette_du_gout-image-focus: center 58%;
+$la_note_enchantee-image-focus: center 60%;
+$a_la_française-image-focus: center 68%;
+$le_delice_des_sens-image-focus: center 70%;
+
+/*var-durée et délais d'animation pour l'apparition des menus */
+$transform-menu-Y-duration: 1s;
+$animation-dishes-delay: $transform-menu-Y-duration;
+$animation-desserts-delay: $transform-menu-Y-duration + $animation-dishes-delay;
+
+/*var-valeurs de chevauchement du menu sur l'image des menus */
+$menu-overlap-mobile: 55px;
+$menu-overlap-desktop: 40px;
+
+/*vaer-largeur du conteneur de la coche des menus */
+$card__check-width: 59px;
+
+
+/*------------Mixins------------*/
+
+/*var-size*/
+@mixin text-logo {
+    font-family: $logo-font-family;
+    font-weight: 400;
+}
+
+@mixin logo-size ($width, $size) {
+    width: $width;
+    font-size: $size;
+}
+
+@mixin text-font ($weight, $size) {
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin box-size ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+/*var- display: flex*/
+@mixin flex-center ($gap: 0) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+
+@mixin flex-items-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-items-center-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column ($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@mixin flex-row ($gap: 0) {
+    display: flex;
+    flex-direction: row;
+    gap: $gap;
+}
+
+/*var- button*/
+@mixin button-reservation {
+    @include box-size(218px,50px);
+    background: $linear-gradient;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+@mixin button-presentation {
+    height: 72.38px;
+    background-color: $main-color;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+@mixin button-image {
+    @include box-size(80px,29px);
+    background-color: $tertiary-color;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+}
+
+@mixin transform-menu-Y {
+    transform-origin: 50% 0%;
+    transform: scaleY(0);
+}
+
+@mixin text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+}
