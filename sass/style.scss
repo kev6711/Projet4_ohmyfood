@@ -24,23 +24,32 @@ body {
     max-width: $max-width-desktop;
 
     @media (min-width: $min-width-desktop) {
-    margin: auto;
+        margin: auto;
     }
 }
 
 .loader {
-    @include box-size(100vw,100vh);
+    @include box-size(100vw, 100vh);
     @include flex-center;
-    animation: loader 0s 1.15s forwards;
+    background: $main-color;
+    animation: loader $loader-duration $loader-delay forwards;
 
-    &__bar {
-        @include box-size(50vw,10vh);
-        border: 1px solid $black-color;
-        transform: scaleX(0);
-        transform-origin: left;
-        background: $linear-gradient;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-        animation: loader__bar 1s 150ms forwards;
+    &__box {
+        @include box-size(75vw,4vh);
+        border: 1px solid $white-color;
+        background: $white-color;
+        border-radius: $loader__bar-radius;
+        padding: 3px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+        
+        &--bar {
+            @include box-size(100%,100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            background: $linear-gradient;
+            border-radius: $loader__bar-radius;
+            animation: loader__bar $loader__bar-duration $loader__bar-delay forwards;
+        }
     }
 }
 
@@ -61,7 +70,7 @@ body {
 }
 
 .main__content {
-    animation: main-content 0ms 1150ms both;
+    animation: main-content $main__content-duration $main__content-delay both;
 }
 
 @keyframes main-content {
@@ -78,7 +87,7 @@ header {
     background-color: $white-color;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
-    & img {
+    img {
         @include logo-size(197px, 36px);
         @include text-logo;
     }
@@ -91,12 +100,8 @@ header {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     @media (min-width: $min-width-desktop) {
-    box-shadow: none;
-    margin: 0;
-    }
-    
-    & p {
-        @include text-font(500, 16px);
+        box-shadow: none;
+        margin: 0;
     }
 }
 
@@ -105,7 +110,7 @@ h1 {
     @include text-font(700, 24px);
 
     @media (min-width: $min-width-desktop) {
-    font-size: 40px;
+        font-size: 40px;
     }
 }
 
@@ -125,23 +130,22 @@ h3 {
     text-align: center;
 
     @media (min-width: $min-width-desktop) {
-    padding: 30px 0;
+        padding: 30px 0;
     }
    
-    & h2 {
-    @include text-font(300, 18px);
-    color: $dark-grey-color;
-    margin: 0px;
+    h2 {
+        @include text-font(300, 18px);
+        color: $dark-grey-color;
+        margin: 0px;
     }
 
     @media (min-width: $min-width-desktop) {
-    @include flex-column (18px);
-
-    & h1,
-    & h2,
-    & h3 {
-        margin: 0 auto 0 auto;
-    }
+        @include flex-column (18px);
+        h1,
+        h2,
+        h3 {
+            margin: 0 auto 0 auto;
+        }
     }
 
     &__button {
@@ -157,6 +161,7 @@ h3 {
                 opacity: 1;
             }
         }
+
         &::after {
             content: "";
             position: absolute;
@@ -169,7 +174,7 @@ h3 {
             border-radius: 25px;
             background: $linear-gradient-light;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
-            transition : opacity 250ms;
+            transition : opacity $light-gradient-duration;
         }
     }
 }
@@ -179,15 +184,15 @@ h3 {
     padding: 48px 20px 68px 20px;
 
     @media (min-width: $min-width-desktop) {
-    margin: 0;
-    padding: 50px 180px;
+        margin: 0;
+        padding: 50px 180px;
     }
 
-    & h2 {
+    h2 {
         margin-bottom: 26px;
 
         @media (min-width: $min-width-desktop) {
-        margin-bottom: 25px;
+            margin-bottom: 25px;
         }
     }
 
@@ -195,10 +200,10 @@ h3 {
         @include flex-column (25px);
     
         @media (min-width: $min-width-desktop) {
-        @include flex-row (24px);
+            @include flex-row (24px);
         }
 
-        & .article__button {
+        .article__button {
             @include button-presentation;
             @include flex-items-center;
             position: relative;
@@ -206,10 +211,10 @@ h3 {
             margin-right: 12px;
 
             @media (min-width: $min-width-desktop) {
-            width: 100%;
+                width: 100%;
             }
 
-            & .article__number {
+            .article__number {
                 @include box-size(24px, 24px);
                 @include text-font(500, 14.18px);
                 color: $white-color;
@@ -219,15 +224,15 @@ h3 {
                 position: relative;
                 right: 12px;
             }
-            & .fa-solid.fa-mobile-screen-button {
+            .fa-solid.fa-mobile-screen-button {
                 @include logo-size(13px, 20px);
                 @include flex-center;
             }
-            & .fa-solid.fa-store {
+            .fa-solid.fa-store {
                 @include logo-size(18px, 18px);
                 color: $primary-color;
             }
-            & .fa-solid {
+            .fa-solid {
                 color: $presentation-icon-color;
                 margin: 0 27px 0 10px;
             }
@@ -240,15 +245,14 @@ h3 {
     background-color: $main-color;
 
     @media (min-width: $min-width-desktop) {
-    padding: 30px 180px;
+        padding: 30px 180px;
     }
     
-    & h2 {
-
+    h2 {
         margin-bottom: 24px;
 
         @media (min-width: $min-width-desktop) {
-        margin-bottom: 28px;
+            margin-bottom: 28px;
         }
     }
 
@@ -256,31 +260,31 @@ h3 {
         @include flex-column (18px);
 
         @media (min-width: $min-width-desktop) {
-        @include flex-row;
-        flex-wrap: wrap;
-        row-gap: 50px;
-        column-gap: 100px;
+            @include flex-row;
+            flex-wrap: wrap;
+            row-gap: 50px;
+            column-gap: 100px;
         }
 
-        & a {
+        a {
             text-decoration: unset;
             color: $black-color;
 
             @media (min-width: $min-width-desktop) {
-            width: calc((100% - 100px) / 2);
+                width: calc((100% - 100px) / 2);
             }
         }
 
-        & .card {
+        .card {
             @include flex-column (16px);
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             background-color: $white-color;
 
-             &__image {
+            &__image {
                 position: relative;
 
-                & img {
+                img {
                     @include box-size(100%, 174px);
                     object-fit: cover;
                     border-top-left-radius: 15px;
@@ -304,20 +308,20 @@ h3 {
                 padding: 0 25px 0 13px;
 
                 @media (min-width: $min-width-desktop) {
-                padding-left: 18.74px;
+                    padding-left: 18.74px;
                 }
 
-                & .card-title {
-                margin: 0 0 5px 0;
-                @include text-font(700, 18px);
+                .card-title {
+                    margin: 0 0 5px 0;
+                    @include text-font(700, 18px);
                 }
 
-                & .card-subtitle {
-                margin: 0 0 12px 0;
-                @include text-font(300, 17px);
+                .card-subtitle {
+                    margin: 0 0 12px 0;
+                    @include text-font(300, 17px);
                 }
 
-                & .card-heart {
+                .card-heart {
                     position: relative;
 
                     &:hover {
@@ -326,14 +330,14 @@ h3 {
                         }
                     }
 
-                    & .fa-solid,
-                      .fa-regular {
+                    .fa-solid,
+                    .fa-regular {
                         @include logo-size(22px,21px);
                         @include flex-center;
                         color: $logo-color;
                     }
 
-                    & .fa-solid {
+                    .fa-solid {
                         opacity: 0;
                         background-color: $linear-gradient;
                         position: absolute;
@@ -354,10 +358,10 @@ footer {
     padding: 22px 25px;
     
     @media (min-width: $min-width-desktop) {
-    padding: 30px 25px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: end;
+        padding: 30px 25px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: end;
     }
     
     & .footer__logo {
@@ -365,34 +369,34 @@ footer {
         margin-bottom: 16px;
 
         @media (min-width: $min-width-desktop) {
-        margin: 0;
+            margin: 0;
         }
     }
 
     & .footer__content {
-    
+
         @media (min-width: $min-width-desktop) {
-        @include flex-row;
+            @include flex-row;
         }
 
-        & .footer__text-icon {
+        .footer__text-icon {
             @include flex-column (7px);
 
             @media (min-width: $min-width-desktop) {
-            @include flex-row (7px);
-            margin-right: 44px;
+                @include flex-row (7px);
+                margin-right: 44px;
             } 
             
-            & div {
+            div {
                 @include flex-row (11px);
 
-                & .fa-solid {
+                .fa-solid {
                     color: $white-color;
                     @include logo-size(11px,13px);
                     @include flex-items-center;
                 }
 
-                & a {
+                a {
                     text-decoration: unset;
                     color: $white-color;
                     @include text-font(500, 16px);
@@ -400,7 +404,7 @@ footer {
             }
         }
 
-        & .footer__list {
+        .footer__list {
             margin: 7px 0 0 0;
             padding: 0;
             list-style: none;
@@ -408,11 +412,11 @@ footer {
             @include flex-column (7px);
 
             @media (min-width: $min-width-desktop) {
-            margin: 0 90px 0 0;
-            @include flex-row (16px);
+                margin: 0 90px 0 0;
+                @include flex-row (16px);
             } 
 
-            & a {
+            a {
                 text-decoration: unset;
                 color: $white-color;
                 @include text-font(400, 16px);

@@ -7,11 +7,16 @@
 /*var-color*/
 /*var-font*/
 /*var-gradient*/
-/*var-media queries*/
 /*var-zone de zoom sur image des pages restaurants*/
-/*var-durée et délais d'animation pour l'apparition des menus */
+/*var-durées et délais d'animation pour l'apparition des menus */
+/*var-durées et délais d'animation pour loader page accueil*/
+/*$loader__bar-duration + $loader__bar-delay*/
+/*$loader__bar-duration + $loader__bar-delay*/
+/*var-durées et délais d'animation pour apparition light-linear-gradient sur boutons principaux*/
+/*var-arrondi barre de progression*/
 /*var-valeurs de chevauchement du menu sur l'image des menus */
-/*vaer-largeur du conteneur de la coche des menus */
+/*var-largeur du conteneur de la coche des menus */
+/*var-media queries*/
 /*------------Mixins------------*/
 /*var-size*/
 /*var- display: flex*/
@@ -118,13 +123,13 @@ main > img {
 .menu__starter, .menu__dishes, .menu__desserts {
   transform-origin: 50% 0%;
   transform: scaleY(0);
-  animation: menu 1s ease-in-out forwards;
+  animation: menu 1000ms ease-in-out forwards;
 }
 .menu__dishes {
-  animation-delay: 1s;
+  animation-delay: 1000ms;
 }
 .menu__desserts {
-  animation-delay: 2s;
+  animation-delay: 2000ms;
 }
 @keyframes menu {
   from {
@@ -273,17 +278,26 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0;
-  animation: loader 0s 1.15s forwards;
+  background: #F6F6F6;
+  animation: loader 0ms 2150ms forwards;
 }
-.loader__bar {
-  width: 50vw;
-  height: 10vh;
-  border: 1px solid #000000;
+.loader__box {
+  width: 75vw;
+  height: 4vh;
+  border: 1px solid #FFFFFF;
+  background: #FFFFFF;
+  border-radius: 25px;
+  padding: 3px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+}
+.loader__box--bar {
+  width: 100%;
+  height: 100%;
   transform: scaleX(0);
   transform-origin: left;
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  animation: loader__bar 1s 150ms forwards;
+  border-radius: 25px;
+  animation: loader__bar 2000ms 150ms forwards;
 }
 
 @keyframes loader {
@@ -302,7 +316,7 @@ body {
   }
 }
 .main__content {
-  animation: main-content 0ms 1150ms both;
+  animation: main-content 0ms 2150ms both;
 }
 
 @keyframes main-content {
@@ -339,10 +353,6 @@ header img {
     box-shadow: none;
     margin: 0;
   }
-}
-.location p {
-  font-weight: 500;
-  font-size: 16px;
 }
 
 h1 {
@@ -389,7 +399,9 @@ h3 {
     flex-direction: column;
     gap: 18px;
   }
-  .reservation h1, .reservation h2, .reservation h3 {
+  .reservation h1,
+  .reservation h2,
+  .reservation h3 {
     margin: 0 auto 0 auto;
   }
 }
