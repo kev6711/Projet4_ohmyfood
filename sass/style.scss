@@ -145,12 +145,12 @@ h3 {
     }
 
     &__button {
-    margin: 27px auto 0 auto;
-    color: $white-color;
-    @include flex-center;
-    @include button-reservation;
-    position: relative;
-    z-index: 1;
+        margin: 27px auto 0 auto;
+        color: $white-color;
+        @include flex-center;
+        @include button-reservation;
+        position: relative;
+        z-index: 1;
 
         &:hover {
             &::after {
@@ -317,17 +317,32 @@ h3 {
                 @include text-font(300, 17px);
                 }
 
-                & .fa-solid,
-                & .fa-regular {
-                    @include logo-size(22px,21px);
-                    @include flex-center;
-                    color: $logo-color;
-                }
+                & .card-heart {
+                    position: relative;
 
-                & .heart-gradient {
-                background: $linear-gradient;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
+                    &:hover {
+                        .fa-solid {
+                            opacity: 1;
+                        }
+                    }
+
+                    & .fa-solid,
+                      .fa-regular {
+                        @include logo-size(22px,21px);
+                        @include flex-center;
+                        color: $logo-color;
+                    }
+
+                    & .fa-solid {
+                        opacity: 0;
+                        background-color: $linear-gradient;
+                        position: absolute;
+                        top: 0;
+                        background: $linear-gradient;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        transition: opacity 1s ease-in-out;
+                    }
                 }
             }
         }

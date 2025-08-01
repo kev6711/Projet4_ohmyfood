@@ -606,7 +606,14 @@ h3 {
   font-weight: 300;
   font-size: 17px;
 }
-.restaurants__cards .card__content .fa-solid, .restaurants__cards .card__content .fa-regular {
+.restaurants__cards .card__content .card-heart {
+  position: relative;
+}
+.restaurants__cards .card__content .card-heart:hover .fa-solid {
+  opacity: 1;
+}
+.restaurants__cards .card__content .card-heart .fa-solid,
+.restaurants__cards .card__content .card-heart .fa-regular {
   width: 22px;
   font-size: 21px;
   display: flex;
@@ -615,11 +622,16 @@ h3 {
   gap: 0;
   color: #101010;
 }
-.restaurants__cards .card__content .heart-gradient {
+.restaurants__cards .card__content .card-heart .fa-solid {
+  opacity: 0;
+  background-color: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  position: absolute;
+  top: 0;
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
+  transition: opacity 1s ease-in-out;
 }
 
 footer {
