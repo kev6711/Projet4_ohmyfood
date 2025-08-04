@@ -302,6 +302,10 @@ h3 {
                     border-top-left-radius: 15px;
                     border-top-right-radius: 15px;
 
+                    @media (min-width: $min-width-card-image-position) {
+                        object-position: center 61%;
+                    }
+
                     @media (min-width: $min-width-desktop) {
                         object-position: center 68%;
                     }
@@ -309,6 +313,10 @@ h3 {
 
                 .la-note-enchantée {
                     object-position: center 62%;
+
+                    @media (min-width: $min-width-card-image-position) {
+                        object-position: center 61%;
+                    }
 
                     @media (min-width: $min-width-desktop) {
                         object-position: center 57%;

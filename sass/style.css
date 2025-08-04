@@ -600,6 +600,12 @@ h3 {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+@media (min-width: 505px) {
+  .restaurants__cards .card__image img {
+    -o-object-position: center 61%;
+       object-position: center 61%;
+  }
+}
 @media (min-width: 1024px) {
   .restaurants__cards .card__image img {
     -o-object-position: center 68%;
@@ -609,6 +615,12 @@ h3 {
 .restaurants__cards .card__image .la-note-enchantée {
   -o-object-position: center 62%;
      object-position: center 62%;
+}
+@media (min-width: 505px) {
+  .restaurants__cards .card__image .la-note-enchantée {
+    -o-object-position: center 61%;
+       object-position: center 61%;
+  }
 }
 @media (min-width: 1024px) {
   .restaurants__cards .card__image .la-note-enchantée {
