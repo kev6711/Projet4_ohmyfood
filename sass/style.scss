@@ -83,13 +83,24 @@ body {
 }
 
 header {
-    text-align: center;
+    @include flex-center;
     background-color: $white-color;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 
-    img {
-        @include logo-size(197px, 36px);
+    .header__logo {
         @include text-logo;
+        @include box-size(197px,36px);
+        font-size: 30px;
+        color: $logo-color;
+        text-align: center;
+        margin: 14px 0 13px 0;
+
+        @media (min-width: $min-width-desktop) {
+            @include box-size(200px,34.2px);
+            @include flex-center;
+            font-size: 36px;
+            margin: 30px 0 31.8px 0;
+        }
     }
 }
 
@@ -287,8 +298,21 @@ h3 {
                 img {
                     @include box-size(100%, 174px);
                     object-fit: cover;
+                    object-position: bottom;
                     border-top-left-radius: 15px;
                     border-top-right-radius: 15px;
+
+                    @media (min-width: $min-width-desktop) {
+                        object-position: center 68%;
+                    }
+                }
+
+                .la-note-enchantée {
+                    object-position: center 62%;
+
+                    @media (min-width: $min-width-desktop) {
+                        object-position: center 57%;
+                    }
                 }
 
                 &--button {
@@ -365,8 +389,9 @@ footer {
     }
     
     & .footer__logo {
-        @include logo-size(139px, 27px);
-        margin-bottom: 16px;
+        @include text-logo;
+        font-size: 18px;
+        color: $white-color;
 
         @media (min-width: $min-width-desktop) {
             margin: 0;
@@ -377,10 +402,12 @@ footer {
 
         @media (min-width: $min-width-desktop) {
             @include flex-row;
+            align-items: flex-end;
         }
 
         .footer__text-icon {
             @include flex-column (7px);
+            margin-top: 16px;
 
             @media (min-width: $min-width-desktop) {
                 @include flex-row (7px);
@@ -393,7 +420,12 @@ footer {
                 .fa-solid {
                     color: $white-color;
                     @include logo-size(11px,13px);
-                    @include flex-items-center;
+                    @include flex-center;
+                }
+
+                .fa-handshake-angle::before {
+                    content: "\f4c4";
+                    transform: scaleX(0.7335);
                 }
 
                 a {
