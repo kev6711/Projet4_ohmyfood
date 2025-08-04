@@ -278,8 +278,15 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0;
+  position: fixed;
   background: #F6F6F6;
   animation: loader 0ms 2150ms forwards;
+}
+@media (min-width: 1024px) {
+  .loader {
+    top: 0;
+    left: 0;
+  }
 }
 .loader__box {
   width: 75vw;
@@ -305,6 +312,7 @@ body {
     width: 0;
     height: 0;
     border: none;
+    visibility: hidden;
   }
 }
 @keyframes loader__bar {

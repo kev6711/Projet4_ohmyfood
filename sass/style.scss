@@ -31,8 +31,14 @@ body {
 .loader {
     @include box-size(100vw, 100vh);
     @include flex-center;
+    position: fixed;
     background: $main-color;
     animation: loader $loader-duration $loader-delay forwards;
+
+    @media (min-width: $min-width-desktop) {
+        top: 0;
+        left: 0;
+    }
 
     &__box {
         @include box-size(75vw,4vh);
@@ -57,6 +63,7 @@ body {
   to {
     @include box-size(0,0);
     border: none;
+    visibility: hidden;
   }
 }
 
