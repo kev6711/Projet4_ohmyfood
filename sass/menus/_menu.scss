@@ -4,7 +4,6 @@
 
 
 .header__menu {
-    @include flex-center(42px);
     position: relative;
 
     .goback-icon {
@@ -14,6 +13,22 @@
         .fa-solid {
             color: $dark-grey-color;
             @include logo-size(17.2px, 16px);
+        }
+    }
+
+    .header__logo {
+        @include text-logo;
+        @include box-size(197px,36px);
+        font-size: 30px;
+        color: $logo-color;
+        text-align: center;
+        margin: 14px 0 13px 0;
+
+        @media (min-width: $min-width-desktop) {
+            @include box-size(200px,34.2px);
+            @include flex-center;
+            font-size: 36px;
+            margin: 30px 0 31.8px 0;
         }
     }
 }
@@ -60,7 +75,7 @@ main > img {
 
     & .menu__title {
         @include flex-row;
-        @include flex-items-center-between;
+        @include flex-items-center(35px);
         padding-top: 32px;
 
         @media (min-width: $min-width-desktop) {
@@ -194,3 +209,15 @@ main > img {
     }
 }
 
+footer {
+
+    & .footer__logo {
+        @include text-logo;
+        font-size: 18px;
+        color: $white-color;
+
+        @media (min-width: $min-width-desktop) {
+            margin: 0;
+        }
+    }
+}
