@@ -46,7 +46,7 @@ body {
         background: $white-color;
         border-radius: $loader__bar-radius;
         padding: 3px;
-        @include box-shadow(4px, 15px, 0.35);
+        @include box-shadow(4px, 15px, 0, 0.35);
         
         &--bar {
             @include box-size(100%,100%);
@@ -92,7 +92,7 @@ body {
 header {
     @include flex-center;
     background-color: $white-color;
-    @include box-shadow(2px, 4px, 0.15);
+    @include box-shadow(2px, 4px, 0, 0.15);
 
     .header__logo {
         @include text-logo;
@@ -115,7 +115,7 @@ header {
     background-color: $location-color;
     color: $dark-grey-color;
     @include flex-center (17px);
-    @include box-shadow(4px, 4px, 0.25);
+    @include box-shadow(4px, 4px, 6px, 0.25);
 
     @media (min-width: $min-width-desktop) {
         box-shadow: none;
@@ -146,9 +146,11 @@ h3 {
     background-color: $main-color;
     padding: 39px 0 57px 0;
     text-align: center;
+    @include box-shadow(4px, 4px, 7px, 0.25);
 
     @media (min-width: $min-width-desktop) {
         padding: 30px 0;
+        box-shadow: none;
     }
    
     h2 {
@@ -187,7 +189,7 @@ h3 {
             z-index: -1;
             border-radius: 25px;
             background: $linear-gradient-light;
-            @include box-shadow(4px, 15px, 0.35);
+            @include box-shadow(4px, 15px, 0, 0.35);
             transition : opacity $light-gradient-duration;
         }
     }
@@ -291,7 +293,7 @@ h3 {
 
         .card {
             @include flex-column (16px);
-            @include box-shadow(4px, 15px, 0.1);
+            @include box-shadow(4px, 15px, 0, 0.1);
             border-radius: 15px;
             background-color: $white-color;
 

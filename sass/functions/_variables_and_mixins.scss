@@ -131,15 +131,15 @@ $max-width-desktop: 1440px;
 }
 
 /*mixins shadow*/
-@mixin box-shadow($y, $blur, $opacity) {
-    box-shadow: 0 $y $blur rgba(0, 0, 0, $opacity);
+@mixin box-shadow($y, $blur, $spread, $opacity) {
+    box-shadow: 0 $y $blur $spread rgba(0, 0, 0, $opacity);
 }
 
 /*mixins- button*/
 @mixin button-reservation {
     @include box-size(218px,50px);
     background: $linear-gradient;
-    @include box-shadow(4px, 10px, 0.25);
+    @include box-shadow(4px, 10px, 0, 0.25);
     border-radius: 25px;
     cursor: pointer;
 }
@@ -148,13 +148,13 @@ $max-width-desktop: 1440px;
     height: 72.38px;
     background-color: $main-color;
     border-radius: 20px;
-    @include box-shadow(4px, 15px, 0.15);
+    @include box-shadow(4px, 15px, 0, 0.15);
 }
 
 @mixin button-image {
     @include box-size(80px,29px);
     background-color: $tertiary-color;
-    @include box-shadow(2px, 4px, 0.15);
+    @include box-shadow(2px, 4px, 0, 0.15);
     border-radius: 2px;
 }
 

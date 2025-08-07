@@ -64,6 +64,32 @@ main > img {
         margin-bottom: -$menu-overlap-desktop;
     }
 
+    .card-heart {
+        position: relative;
+
+        &:hover {
+            .fa-solid {
+                opacity: 1;
+            }
+        }
+
+        .fa-solid,
+        .fa-regular {
+            @include logo-size(22px,21px);
+            @include flex-center;
+            color: $logo-color;
+            cursor: pointer;
+        }
+
+        .fa-solid {
+            opacity: 0;
+            background: $linear-gradient;
+            @include absolute-position;
+            @include background-text-clip;
+            transition: opacity 1s ease-in-out;
+        }
+    }
+
     section {
         @include flex-column(12px);
 
@@ -140,7 +166,7 @@ main > img {
         @include flex-items-center-between;
         background-color: $white-color;
         height: 69px;
-        @include box-shadow(4.01149px, 15.0431px, 0.1);
+        @include box-shadow(4.01149px, 15.0431px, 0, 0.1);
         border-radius: 15.04px;
         padding: 0 15px;
         position: relative;
