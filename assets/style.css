@@ -41,28 +41,6 @@
   width: 17.2px;
   font-size: 16px;
 }
-.header__menu .header__logo {
-  font-family: "Shrikhand", sans-serif;
-  font-weight: 400;
-  width: 197px;
-  height: 36px;
-  font-size: 30px;
-  color: #101010;
-  text-align: center;
-  margin: 14px 0 13px 0;
-}
-@media (min-width: 1024px) {
-  .header__menu .header__logo {
-    width: 200px;
-    height: 34.2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    font-size: 36px;
-    margin: 30px 0 31.8px 0;
-  }
-}
 
 main > img {
   width: 100%;
@@ -155,7 +133,6 @@ main > img {
 }
 @media (min-width: 1024px) {
   .menu .menu__title {
-    justify-content: center;
     gap: 24px;
     padding-top: 51px;
   }
@@ -284,18 +261,6 @@ main > img {
 .menu .reservation__button {
   width: 186px;
   margin: 0 auto 40px auto;
-}
-
-footer .footer__logo {
-  font-family: "Shrikhand", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #FFFFFF;
-}
-@media (min-width: 1024px) {
-  footer .footer__logo {
-    margin: 0;
-  }
 }
 
 /*------------Importations des variables et des mixins------------*/
