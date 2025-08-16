@@ -45,8 +45,7 @@
 main > img {
   width: 100%;
   height: 275px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media (min-width: 1024px) {
   main > img {
@@ -56,8 +55,7 @@ main > img {
 
 @media (min-width: 1024px) {
   .main__image--palette-du-gout {
-    -o-object-position: center 58%;
-       object-position: center 58%;
+    object-position: center 58%;
   }
 }
 
@@ -85,7 +83,7 @@ main > img {
 .menu .card-heart {
   position: relative;
 }
-.menu .card-heart:hover .fa-solid {
+.menu .card-heart:active .fa-solid {
   opacity: 1;
 }
 .menu .card-heart .fa-solid,
@@ -108,8 +106,7 @@ main > img {
   bottom: 0;
   left: 0;
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   transition: opacity 1s ease-in-out;
 }
 .menu section {
@@ -200,10 +197,10 @@ main > img {
     width: 634px;
   }
 }
-.menu .card:hover .card__check {
+.menu .card:active .card__check {
   left: calc(100% - 59px);
 }
-.menu .card:hover .card__price {
+.menu .card:active .card__price {
   margin-right: 59px;
 }
 .menu .card__text {
@@ -255,8 +252,7 @@ main > img {
   background-color: #FFFFFF;
   font-size: 20px;
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
 }
 .menu .reservation__button {
   width: 186px;
@@ -267,8 +263,7 @@ main > img {
 /*------------Importations des variables et des mixins------------*/
 @media (min-width: 1024px) {
   .main__image--le_delice_des_sens {
-    -o-object-position: center 70%;
-       object-position: center 70%;
+    object-position: center 70%;
   }
 }
 
@@ -276,8 +271,7 @@ main > img {
 /*------------Importations des variables et des mixins------------*/
 @media (min-width: 1024px) {
   .main__image--la_note_enchantee {
-    -o-object-position: center 60%;
-       object-position: center 60%;
+    object-position: center 60%;
   }
 }
 
@@ -285,8 +279,7 @@ main > img {
 /*------------Importations des variables et des mixins------------*/
 @media (min-width: 1024px) {
   .main__image--a_la_française {
-    -o-object-position: center 68%;
-       object-position: center 68%;
+    object-position: center 68%;
   }
 }
 
@@ -375,6 +368,13 @@ header {
   gap: 0;
   background-color: #FFFFFF;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 3;
+}
+@media (min-width: 1024px) {
+  header {
+    position: unset;
+  }
 }
 header .header__logo {
   font-family: "Shrikhand", sans-serif;
@@ -406,7 +406,9 @@ header .header__logo {
   align-items: center;
   justify-content: center;
   gap: 17px;
-  box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2;
 }
 @media (min-width: 1024px) {
   .location {
@@ -441,7 +443,6 @@ h3 {
   background-color: #F6F6F6;
   padding: 39px 0 57px 0;
   text-align: center;
-  box-shadow: 0 4px 4px 7px rgba(0, 0, 0, 0.25);
 }
 @media (min-width: 1024px) {
   .reservation {
@@ -610,8 +611,7 @@ h3 {
     gap: 0;
     flex-wrap: wrap;
     row-gap: 50px;
-    -moz-column-gap: 100px;
-         column-gap: 100px;
+    column-gap: 100px;
   }
 }
 .restaurants__cards a {
@@ -637,39 +637,32 @@ h3 {
 .restaurants__cards .card__image img {
   width: 100%;
   height: 174px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  object-fit: cover;
+  object-position: bottom;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 @media (min-width: 505px) {
   .restaurants__cards .card__image img {
-    -o-object-position: center 61%;
-       object-position: center 61%;
+    object-position: center 61%;
   }
 }
 @media (min-width: 1024px) {
   .restaurants__cards .card__image img {
-    -o-object-position: center 68%;
-       object-position: center 68%;
+    object-position: center 68%;
   }
 }
 .restaurants__cards .card__image .la-note-enchantee {
-  -o-object-position: center 62%;
-     object-position: center 62%;
+  object-position: center 62%;
 }
 @media (min-width: 505px) {
   .restaurants__cards .card__image .la-note-enchantee {
-    -o-object-position: center 61%;
-       object-position: center 61%;
+    object-position: center 61%;
   }
 }
 @media (min-width: 1024px) {
   .restaurants__cards .card__image .la-note-enchantee {
-    -o-object-position: center 57%;
-       object-position: center 57%;
+    object-position: center 57%;
   }
 }
 .restaurants__cards .card__image--button {
@@ -716,7 +709,7 @@ h3 {
 .restaurants__cards .card__content .card-heart {
   position: relative;
 }
-.restaurants__cards .card__content .card-heart:hover .fa-solid {
+.restaurants__cards .card__content .card-heart:active .fa-solid {
   opacity: 1;
 }
 .restaurants__cards .card__content .card-heart .fa-solid,
@@ -738,8 +731,7 @@ h3 {
   bottom: 0;
   left: 0;
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   transition: opacity 1s ease-in-out;
 }
 
