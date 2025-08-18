@@ -46,6 +46,7 @@ body {
         background: $white-color;
         border-radius: $loader__bar-radius;
         padding: 3px;
+        overflow: hidden;
         @include box-shadow(4px, 15px, 0, 0.35);
         
         &--bar {

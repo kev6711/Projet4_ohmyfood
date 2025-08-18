@@ -321,6 +321,7 @@ body {
   background: #FFFFFF;
   border-radius: 25px;
   padding: 3px;
+  overflow: hidden;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.35);
 }
 .loader__box--bar {
