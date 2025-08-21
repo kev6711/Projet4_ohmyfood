@@ -83,7 +83,7 @@ main > img {
 .menu .card-heart {
   position: relative;
 }
-.menu .card-heart:active .fa-solid {
+.menu .card-heart:hover .fa-solid {
   opacity: 1;
 }
 .menu .card-heart .fa-solid,
@@ -197,10 +197,10 @@ main > img {
     width: 634px;
   }
 }
-.menu .card:active .card__check {
+.menu .card:hover .card__check {
   left: calc(100% - 59px);
 }
-.menu .card:active .card__price {
+.menu .card:hover .card__price {
   margin-right: 59px;
 }
 .menu .card__text {
@@ -289,7 +289,6 @@ body {
   font-family: "Roboto", sans-serif;
   color: #000000;
   min-width: 325px;
-  max-width: 1440px;
 }
 @media (min-width: 1024px) {
   body {
@@ -416,6 +415,18 @@ header .header__logo {
     box-shadow: none;
     margin: 0;
   }
+}
+.location input {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  background: none;
+  margin: 16px 0;
+  padding: 0;
+  text-align: center;
+  width: 109px;
+  color: #353535;
 }
 
 h1 {
@@ -710,7 +721,7 @@ h3 {
 .restaurants__cards .card__content .card-heart {
   position: relative;
 }
-.restaurants__cards .card__content .card-heart:active .fa-solid {
+.restaurants__cards .card__content .card-heart:hover .fa-solid {
   opacity: 1;
 }
 .restaurants__cards .card__content .card-heart .fa-solid,

@@ -51,7 +51,7 @@ main > img {
     .card-heart {
         position: relative;
 
-        &:active {
+        &:hover {
             .fa-solid {
                 opacity: 1;
             }
@@ -160,7 +160,7 @@ main > img {
             width: 634px;
         }
 
-        &:active {
+        &:hover {
             .card__check {
                 left: calc(100% - $card__check-width);
             }

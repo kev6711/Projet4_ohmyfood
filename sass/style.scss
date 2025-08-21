@@ -21,7 +21,6 @@ body {
     font-family: $main-font-family;
     color: $black-color;
     min-width: $min-width-mobile;
-    max-width: $max-width-desktop;
 
     @media (min-width: $min-width-desktop) {
         margin: auto;
@@ -130,9 +129,21 @@ header {
         box-shadow: none;
         margin: 0;
     }
+
+    & input {
+        @include text-font(500, 16px);
+        font-family: $main-font-family;
+        border: none;
+        background: none;
+        margin: 16px 0;
+        padding: 0;
+        text-align: center;
+        width: 109px;
+        color: $dark-grey-color;
+    }
 }
 
-h1 {
+h1 {    
     margin-top: 0;
     @include text-font(700, 24px);
 
@@ -366,7 +377,7 @@ h3 {
                 .card-heart {
                     position: relative;
 
-                    &:active {
+                    &:hover {
                         .fa-solid {
                             opacity: 1;
                         }
